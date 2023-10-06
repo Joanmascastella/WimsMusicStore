@@ -1,7 +1,7 @@
 package com.inholland.nl.wimsmusicstore.Database;
 
 import com.inholland.nl.wimsmusicstore.Model.User;
-import com.inholland.nl.wimsmusicstore.UserType;
+import com.inholland.nl.wimsmusicstore.Enum.UserType;
 
 
 import java.util.ArrayList;

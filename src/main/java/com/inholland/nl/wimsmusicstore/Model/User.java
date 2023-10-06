@@ -1,6 +1,6 @@
 package com.inholland.nl.wimsmusicstore.Model;
 
-import com.inholland.nl.wimsmusicstore.UserType;
+import com.inholland.nl.wimsmusicstore.Enum.UserType;
 
 public class User {
     private String username;
