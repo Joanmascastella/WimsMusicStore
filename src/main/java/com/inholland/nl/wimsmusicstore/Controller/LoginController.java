@@ -64,11 +64,11 @@ public class LoginController {
     }
     public void loadScene() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/inholland/nl/wimsmusicstore/DashboardView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/inholland/nl/wimsmusicstore/MainView.fxml"));
             Parent root = loader.load();
-            DashboardController dashboardController = loader.getController();
-            dashboardController.setUser(user);
-            dashboardController.setDatabase(database);
+            MainViewController mainViewController = loader.getController();
+            mainViewController.setUser(user);
+            mainViewController.setDatabase(database);
             Stage view = new Stage();
             view.setScene(new Scene(root));
             view.setTitle("Wim's Music Store Dashboard");

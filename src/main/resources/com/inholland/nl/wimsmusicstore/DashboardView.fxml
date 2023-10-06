@@ -3,16 +3,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.DashboardController">
+<VBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.DashboardController">
 
-    <!-- NavigationView -->
-    <VBox fx:id="navigationContainer" alignment="TOP_CENTER" prefWidth="180" style="-fx-background-color: #420400">
-    </VBox>
 
-    <VBox prefHeight="400.0" prefWidth="400.0" spacing="10">
-        <Label fx:id="userName" style="-fx-font-size: 24px; " />
-        <Label fx:id="userRole" style="-fx-font-size: 12px; ;" />
+        <Label fx:id="userName" style="-fx-font-size: 24px;" />
+        <Label fx:id="userRole" style="-fx-font-size: 12px;" />
         <Label fx:id="dateAndTime" style="-fx-font-size: 12px;" />
-    </VBox>
 
-</HBox>
+
+</VBox>

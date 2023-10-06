@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Navigation done properly">
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Navigation done working">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/MainViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/CreateOrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/NavigationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/NavigationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/OrderHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/OrderHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/NavigationView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/NavigationView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/NavigationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/DashboardView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/DashboardView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/NavigationView.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696604118666</updated>
       <workItem from="1696604119654" duration="930000" />
-      <workItem from="1696605095299" duration="5852000" />
+      <workItem from="1696605095299" duration="8328000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -111,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696609893456</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Navigation done working">
+      <option name="closed" value="true" />
+      <created>1696611093421</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696611093421</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +132,7 @@
     <MESSAGE value="Creating Files" />
     <MESSAGE value="Dashboard Done and login done also the passing of user and database is working" />
     <MESSAGE value="Navigation done properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Navigation done properly" />
+    <MESSAGE value="Navigation done working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Navigation done working" />
   </component>
 </project>
