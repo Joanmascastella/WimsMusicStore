@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.inholland.nl.wimsmusicstore.Controller.DashboardController"
-      prefHeight="400.0" prefWidth="600.0"
-      spacing="10"
-      style="-fx-padding: 15px;">
+<HBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.DashboardController">
 
-    <Label fx:id="userName"
-           style="-fx-font-size: 24px; -fx-padding: 10px;">
-    </Label>
+    <!-- NavigationView -->
+    <VBox fx:id="navigationContainer" alignment="TOP_CENTER" prefWidth="180" style="-fx-background-color: #420400">
+    </VBox>
 
-    <Label fx:id="userRole"
-           style="-fx-font-size: 16px; -fx-padding: 10px;">
-    </Label>
+    <VBox prefHeight="400.0" prefWidth="400.0" spacing="10">
+        <Label fx:id="userName" style="-fx-font-size: 24px; " />
+        <Label fx:id="userRole" style="-fx-font-size: 12px; ;" />
+        <Label fx:id="dateAndTime" style="-fx-font-size: 12px;" />
+    </VBox>
 
-    <Label fx:id="dateAndTime"
-           style="-fx-font-size: 16px; -fx-padding: 10px;">
-    </Label>
-
-</VBox>
+</HBox>

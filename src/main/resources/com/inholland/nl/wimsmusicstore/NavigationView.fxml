@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="10" prefWidth="200" style="-fx-padding: 20px; -fx-background-color: #420400;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.NavigationController">
+
+    <Button onAction="#navigateToDashboard" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="DashBoard" textFill="WHITE">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+    <Button onAction="#navigateToCreateOrder" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="Create Order" textFill="WHITE">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+    <Button onAction="#navigateToProductInventory" style="-fx-background-color: #520601;" text="Product Inventory" textFill="WHITE">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+    <Button onAction="#navigateToOrderHistory" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="Order History" textFill="WHITE">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+
+</VBox>
