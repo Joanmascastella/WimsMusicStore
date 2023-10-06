@@ -50,6 +50,7 @@ public class DashboardController {
 
             NavigationController navigationController = loader.getController();
             navigationController.setDatabase(this.database);
+            navigationController.setUser(this.user);
 
             navigationContainer.getChildren().setAll(navigationView);
         } catch (IOException e) {

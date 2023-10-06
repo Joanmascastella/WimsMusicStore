@@ -5,22 +5,22 @@
 
 <VBox spacing="10" prefWidth="200" style="-fx-padding: 20px; -fx-background-color: #420400;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.NavigationController">
 
-    <Button onAction="#navigateToDashboard" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="DashBoard" textFill="WHITE">
+    <Button fx:id="dashboardButton" onAction="#navigateToDashboard" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="DashBoard" textFill="WHITE" >
         <font>
             <Font size="15.0" />
         </font>
     </Button>
-    <Button onAction="#navigateToCreateOrder" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="Create Order" textFill="WHITE">
+    <Button fx:id="createOrderButton" onAction="#navigateToCreateOrder" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="Create Order" textFill="WHITE">
         <font>
             <Font size="15.0" />
         </font>
     </Button>
-    <Button onAction="#navigateToProductInventory" style="-fx-background-color: #520601;" text="Product Inventory" textFill="WHITE">
+    <Button fx:id="productInventoryButton" onAction="#navigateToProductInventory" style="-fx-background-color: #520601;" text="Product Inventory" textFill="WHITE">
         <font>
             <Font size="15.0" />
         </font>
     </Button>
-    <Button onAction="#navigateToOrderHistory" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="Order History" textFill="WHITE">
+    <Button fx:id="orderHistoryButton" onAction="#navigateToOrderHistory" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="Order History" textFill="WHITE">
         <font>
             <Font size="15.0" />
         </font>
