@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.inholland.nl.wimsmusicstore.Controller.WimsMusicStoreController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
-
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<SplitPane dividerPositions="0.4215720831864645" prefHeight="488.0" prefWidth="369.0"
+           xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.inholland.nl.wimsmusicstore.Controller.LoginController">
+  <Pane style="-fx-background-color: #0D254C;">
+    <Label layoutX="24.0" layoutY="36.0" text="Wim's Music" textFill="WHITE">
+      <font>
+        <Font size="23.0"/>
+      </font>
+    </Label>
+    <Label layoutX="24.0" layoutY="70.0" text="Store" textFill="WHITE">
+      <font>
+        <Font size="23.0"/>
+      </font>
+    </Label>
+  </Pane>
+  <VBox prefHeight="403.0" prefWidth="326.0" spacing="10.0">
+    <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <Label prefHeight="30.0" prefWidth="95.0" style="-fx-font-size: 30px;" text="Login" textAlignment="CENTER">
+      <font>
+        <Font name="System Bold" size="24.0"/>
+      </font>
+    </Label>
+    <Label style="-fx-font-size: 16px;" text="Username">
+      <font>
+        <Font size="30.0"/>
+      </font>
+    </Label>
+    <TextField fx:id="userNameField"/>
+    <Label style="-fx-font-size: 16px;" text="Password">
+      <font>
+        <Font size="30.0"/>
+      </font>
+    </Label>
+    <PasswordField fx:id="passwordField" onTextChange="#onPasswordTextChange"/>
+    <Button fx:id="loginButton" onAction="#onLoginButtonClick" prefHeight="43.0" prefWidth="132.0"
+            style="-fx-background-color: #80173f; -fx-text-fill: white; -fx-font-size: 20px;" text="Login" disable="true">
+      <font>
+        <Font size="19.0"/>
+      </font>
+    </Button>
+    <Label fx:id="feedbackLabel"/>
+  </VBox>
+</SplitPane>

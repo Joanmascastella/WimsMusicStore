@@ -4,21 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Creating New project">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/WimsMusicStore.java" afterDir="false" />
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Creating Files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/DashboardView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/WimsMusicStoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/WimsMusicStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/WimsMusicStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/LoginView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/LoginView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2WOWU0swozfe6GTf8TI148dYncS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -32,13 +49,28 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/DEVELOPMENT/www.inholland.nl/NewEndAssignment",
+    "last_opened_file_path": "C:/Users/stonk/OneDrive/Escritorio/WimsMusicStore",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\stonk\OneDrive\Escritorio\WimsMusicStore\src\main\java" />
+      <recent name="C:\Users\stonk\OneDrive\Escritorio\WimsMusicStore\src\main\java\com\inholland\nl\wimsmusicstore" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="com.inholland.nl.wimsmusicstore" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,7 +79,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696604118666</updated>
-      <workItem from="1696604119654" duration="258000" />
+      <workItem from="1696604119654" duration="930000" />
+      <workItem from="1696605095299" duration="2263000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -57,7 +90,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696604216651</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Creating Files">
+      <option name="closed" value="true" />
+      <created>1696604495955</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696604495955</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -66,6 +107,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Creating New project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating New project" />
+    <MESSAGE value="Creating Files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating Files" />
   </component>
 </project>
