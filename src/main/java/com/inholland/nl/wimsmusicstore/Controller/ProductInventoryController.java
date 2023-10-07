@@ -25,6 +25,7 @@ public class ProductInventoryController implements Initializable {
     @FXML private Button addProduct;
     @FXML private Button delete;
     @FXML private Label message;
+    private Product selectedProductForEdit;
 
     public void setDatabase(Database database) {
         this.database = database;
@@ -39,29 +40,93 @@ public class ProductInventoryController implements Initializable {
         productTableView.setItems(products);
     }
 
-
-    public void onEditProductButtonClick(ActionEvent actionEvent) {
-    }
-
     public void onAddProductButtonClick(ActionEvent actionEvent) {
         try {
+            //Parse int and double values
             int stockValue = Integer.parseInt(stock.getText());
             double priceValue = Double.parseDouble(price.getText());
+            //Creates new product
             Product product = new Product(stockValue, productName.getText(), category.getText(), priceValue, description.getText());
-            products.add(product);
+            //Adds product to database and file
             database.addProduct(product);
+            //adds product to tableview
+            products.add(product);
+            //clear fields
             clearFields();
+            message.setText("Product has been added successfully.");
         } catch (NumberFormatException e) {
+            message.setText("Error converting stock or price values. Please enter valid numbers.");
             System.err.println("Error converting stock or price values. Please enter valid numbers.");
+        } catch (Exception e) {
+            message.setText("Error adding product.");
+            System.err.println(e.getMessage());
         }
     }
-
-    public void onDeleteButtonClick(ActionEvent actionEvent) {
-        ObservableList<Product> productsToDelete = productTableView.getSelectionModel().getSelectedItems();
-        for (Product product : productsToDelete) {
-            database.removeProduct(product);
+    public void onEditProductButtonClick(ActionEvent actionEvent) {
+        if (selectedProductForEdit == null) {
+            setPromptText();
+        } else {
+            updateProduct();
         }
-        products.removeAll(productsToDelete);
+    }
+    private void setPromptText() {
+        //This gets the selectedProduct and sets its values to the prompt text of the textFields
+        try {
+            Product selectedProduct = (Product) productTableView.getSelectionModel().getSelectedItem();
+            if (selectedProduct != null) {
+                stock.setPromptText(String.valueOf(selectedProduct.getStock()));
+                productName.setPromptText(selectedProduct.getProductName());
+                category.setPromptText(selectedProduct.getCategory());
+                price.setPromptText(String.valueOf(selectedProduct.getPrice()));
+                description.setPromptText(selectedProduct.getDescription());
+                selectedProductForEdit = selectedProduct;
+            }
+        } catch (Exception e) {
+            message.setText("Error setting product details.");
+            System.err.println(e.getMessage());
+        }
+    }
+    private void updateProduct() {
+        try {
+            // This is checking if the fields are empty
+            int stockValue = stock.getText().isEmpty() ? selectedProductForEdit.getStock() : Integer.parseInt(stock.getText());
+            double priceValue = price.getText().isEmpty() ? selectedProductForEdit.getPrice() : Double.parseDouble(price.getText());
+            String updatedProductName = productName.getText().isEmpty() ? selectedProductForEdit.getProductName() : productName.getText();
+            String updatedCategory = category.getText().isEmpty() ? selectedProductForEdit.getCategory() : category.getText();
+            String updatedDescription = description.getText().isEmpty() ? selectedProductForEdit.getDescription() : description.getText();
+            // Creating the updated product
+            Product updatedProduct = new Product(stockValue, updatedProductName, updatedCategory, priceValue, updatedDescription);
+            // Replacing the old product in the database
+            database.removeProduct(selectedProductForEdit);
+            database.addProduct(updatedProduct);
+            int selectedIndex = products.indexOf(selectedProductForEdit);
+            products.set(selectedIndex, updatedProduct);  // Updates the tableview
+            clearFields();
+            // Exits the editing function
+            selectedProductForEdit = null;
+            message.setText("Product has been edited successfully.");
+        } catch (NumberFormatException e) {
+            message.setText("Error converting stock or price values. Please enter valid numbers.");
+            System.err.println("Error converting stock or price values. Please enter valid numbers.");
+        } catch (Exception e) {
+            message.setText("Error updating product.");
+            System.err.println(e.getMessage());
+        }
+    }
+    public void onDeleteButtonClick(ActionEvent actionEvent) {
+        try {
+            //Gets the selected product removes it from the list and file
+            ObservableList<Product> productsToDelete = productTableView.getSelectionModel().getSelectedItems();
+            for (Product product : productsToDelete) {
+                database.removeProduct(product);
+            }
+            //removes products from tableview
+            products.removeAll(productsToDelete);
+            message.setText("Product(s) have been deleted successfully.");
+        } catch (Exception e) {
+            message.setText("Error deleting product(s).");
+            System.err.println(e.getMessage());
+        }
     }
 
     public void clearFields(){

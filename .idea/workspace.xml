@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Product inventory now adds new items to list and saves it to binary file making it so its data persistent">
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Delete works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.dat" beforeDir="false" afterPath="$PROJECT_DIR$/products.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <updated>1696604118666</updated>
       <workItem from="1696604119654" duration="930000" />
       <workItem from="1696605095299" duration="9150000" />
-      <workItem from="1696663505502" duration="5862000" />
+      <workItem from="1696663505502" duration="6905000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -172,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696669069299</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Delete works">
+      <option name="closed" value="true" />
+      <created>1696669407635</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1696669407635</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +199,7 @@
     <MESSAGE value="Product inventory loads in products" />
     <MESSAGE value="Product inventory can now add items but its not saving to the list of products" />
     <MESSAGE value="Product inventory now adds new items to list and saves it to binary file making it so its data persistent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Product inventory now adds new items to list and saves it to binary file making it so its data persistent" />
+    <MESSAGE value="Delete works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete works" />
   </component>
 </project>
