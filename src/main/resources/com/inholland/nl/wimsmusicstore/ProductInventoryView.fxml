@@ -1,12 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.ProductInventoryController">
+<VBox prefHeight="600.0" prefWidth="650" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.ProductInventoryController">
 
+    <padding>
+        <Insets topRightBottomLeft="10" />
+    </padding>
 
-    <Label text="product inventory"/>
+    <Label text="Product Invetory">
+      <font>
+         <Font size="20.0" />
+      </font></Label>
+
+    <TableView fx:id="productTableView">
+        <columns>
+            <TableColumn fx:id="stockRow" prefWidth="52.40002477169037" text="Stock">
+                <cellValueFactory>
+                    <PropertyValueFactory property="stock" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="productNameRow" prefWidth="168.80001831054688" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="productName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="categoryRow" prefWidth="157.5999755859375" text="Category">
+                <cellValueFactory>
+                    <PropertyValueFactory property="category" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="priceRow" minWidth="0.0" prefWidth="53.5999755859375" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="descriptionRow" prefWidth="202.39996337890625" text="Description">
+                <cellValueFactory>
+                    <PropertyValueFactory property="description" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox spacing="8" VBox.vgrow="NEVER">
+        <padding>
+            <Insets bottom="10" top="10" />
+        </padding>
+
+        <TextField fx:id="stock" promptText="Stock" />
+        <TextField fx:id="productName" promptText="Product Name" />
+        <TextField fx:id="category" promptText="Category" />
+        <TextField fx:id="price" promptText="Price" />
+        <TextField fx:id="description" promptText="Description" />
+
+    </HBox>
+
+    <HBox spacing="8" VBox.vgrow="NEVER">
+        <padding>
+            <Insets bottom="10" top="10" />
+        </padding>
+        <Button fx:id="addProduct" minWidth="-Infinity" onAction="#onAddProductButtonClick">Add Product</Button>
+        <Button fx:id="editProduct" minWidth="-Infinity" onAction="#onEditProductButtonClick">Edit Product</Button>
+        <Button fx:id="delete" minWidth="-Infinity" onAction="#onDeleteButtonClick">Delete Product</Button>
+
+    </HBox>
+    <Label fx:id="message" style="-fx-text-fill: red" />
 
 
 </VBox>

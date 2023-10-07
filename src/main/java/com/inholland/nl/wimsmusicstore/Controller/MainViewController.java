@@ -89,6 +89,7 @@ public class MainViewController {
             } else if (controller instanceof ProductInventoryController) {
                 ProductInventoryController productInventoryController = (ProductInventoryController) controller;
                 productInventoryController.setDatabase(database);
+                productInventoryController.loadData();
             } else if (controller instanceof OrderHistoryController) {
                 OrderHistoryController orderHistoryController = (OrderHistoryController) controller;
                 orderHistoryController.setDatabase(database);
