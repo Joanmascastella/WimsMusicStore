@@ -56,9 +56,12 @@ public class ProductInventoryController implements Initializable {
         }
     }
 
-
-
     public void onDeleteButtonClick(ActionEvent actionEvent) {
+        ObservableList<Product> productsToDelete = productTableView.getSelectionModel().getSelectedItems();
+        for (Product product : productsToDelete) {
+            database.removeProduct(product);
+        }
+        products.removeAll(productsToDelete);
     }
 
     public void clearFields(){

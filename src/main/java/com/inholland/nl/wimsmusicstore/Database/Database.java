@@ -1,17 +1,12 @@
 package com.inholland.nl.wimsmusicstore.Database;
-
 import com.inholland.nl.wimsmusicstore.Model.Product;
 import com.inholland.nl.wimsmusicstore.Model.User;
 import com.inholland.nl.wimsmusicstore.Enum.UserType;
-
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-
-
     private final List<User> users;
     private List<Product> products = new ArrayList<>();
 
@@ -35,16 +30,17 @@ public class Database {
         }
         return null;
     }
-
     public List<Product> getProducts() {
         return products;
     }
-
     public void addProduct(Product product) {
         products.add(product);
         saveProductsToFile();
     }
-
+    public void removeProduct(Product product) {
+        products.remove(product);
+        saveProductsToFile();
+    }
 
     public void saveProductsToFile() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("products.dat"))) {
@@ -53,7 +49,6 @@ public class Database {
             e.printStackTrace();
         }
     }
-
     public void loadProductsFromFile() {
         File file = new File("products.dat");
         if (file.exists()) {
