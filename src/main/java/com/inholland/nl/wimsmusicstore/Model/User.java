@@ -21,6 +21,13 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+ public User(String firstName, String lastName, String email, int phoneNumber){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+ }
+
     public String getUsername() {
         return username;
     }

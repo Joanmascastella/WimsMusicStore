@@ -8,7 +8,7 @@
 
     <!-- NavigationView -->
     <VBox prefHeight="536.0" prefWidth="181.0" spacing="10" style="-fx-padding: 20px; -fx-background-color: #420400;">
-        <Button fx:id="dashboardButton" onAction="#navigateToDashboard" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="DashBoard" textFill="WHITE">
+        <Button fx:id="dashboardButton" onAction="#navigateToDashboard" prefHeight="31.0" prefWidth="139.0" style="-fx-background-color: #520601;" text="Dashboard" textFill="WHITE">
             <font>
                 <Font size="15.0" />
             </font>
