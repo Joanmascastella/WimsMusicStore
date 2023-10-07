@@ -1,6 +1,6 @@
 package com.inholland.nl.wimsmusicstore.Model;
-
-public class Product {
+import java.io.Serializable;
+public class Product implements Serializable  {
     private int stock;
     private String productName;
     private String category;

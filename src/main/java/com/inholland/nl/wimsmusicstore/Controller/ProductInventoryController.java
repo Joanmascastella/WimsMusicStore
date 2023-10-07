@@ -1,4 +1,5 @@
 package com.inholland.nl.wimsmusicstore.Controller;
+
 import com.inholland.nl.wimsmusicstore.Database.Database;
 import com.inholland.nl.wimsmusicstore.Model.Product;
 import javafx.collections.FXCollections;
@@ -7,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -45,16 +47,15 @@ public class ProductInventoryController implements Initializable {
         try {
             int stockValue = Integer.parseInt(stock.getText());
             double priceValue = Double.parseDouble(price.getText());
-
             Product product = new Product(stockValue, productName.getText(), category.getText(), priceValue, description.getText());
             products.add(product);
+            database.addProduct(product);
             clearFields();
-
         } catch (NumberFormatException e) {
-
             System.err.println("Error converting stock or price values. Please enter valid numbers.");
         }
     }
+
 
 
     public void onDeleteButtonClick(ActionEvent actionEvent) {
