@@ -63,7 +63,7 @@
       </TableColumn>
       <TableColumn fx:id="priceRow" minWidth="0.0" prefWidth="53.5999755859375" text="Price">
         <cellValueFactory>
-          <PropertyValueFactory property="price" />
+          <PropertyValueFactory property="finalPrice" />
         </cellValueFactory>
       </TableColumn>
     </columns>

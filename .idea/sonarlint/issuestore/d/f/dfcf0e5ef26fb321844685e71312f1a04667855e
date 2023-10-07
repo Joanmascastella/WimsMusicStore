@@ -1,0 +1,10 @@
+
+Q
+java:S3740"/Provide the parametrized type for this generic.(‚±ÃÇûÿÿÿÿ8ó×ûÏ°1
+m	java:S116"QRename this field "Cancel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÑŒÄ8¿¨ÑÎ°1
+
+java:S1186$"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚§Ê‰8·ªïÏ°1
+y
+java:S1450"WRemove the "products" field and declare it as a local variable in the relevant methods.(Œä£‰ıÿÿÿÿ8ßõøÏ°1
+T
+java:S1172("2Remove this unused method parameter "actionEvent".(Å½ï™üÿÿÿÿ8óüÎ°1

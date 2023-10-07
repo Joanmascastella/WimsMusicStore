@@ -5,30 +5,60 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.inholland.nl.wimsmusicstore.Controller.PopAddOrderController"
-            prefHeight="400.0" prefWidth="600.0">
 
-    <Label layoutX="14.0" layoutY="14.0" text="Select Product">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.inholland.nl.wimsmusicstore.Controller.PopAddOrderController"
+      prefHeight="359.0" prefWidth="600.0" spacing="10">
+    <padding>
+        <Insets topRightBottomLeft="10" />
+    </padding>
+    <Label text="Select Product">
         <font>
             <Font size="20.0" />
-        </font></Label>
-    <TableView fx:id="productTableView" layoutX="14.0" layoutY="44.0" prefHeight="200.0" prefWidth="557.0">
+        </font>
+    </Label>
+    <TableView fx:id="productTableView">
         <columns>
-            <TableColumn fx:id="stockRow" prefWidth="75.0" text="Stock" />
-            <TableColumn fx:id="nameRow" prefWidth="170.6000518798828" text="Name" />
-            <TableColumn fx:id="catergoryRow" prefWidth="97.39996337890625" text="Category" />
-            <TableColumn fx:id="priceRow" prefWidth="53.199951171875" text="Price" />
-            <TableColumn fx:id="descriptionRow" prefWidth="163.2000732421875" text="Description" />
+            <TableColumn fx:id="stockRow" prefWidth="52.40002477169037" text="Stock">
+                <cellValueFactory>
+                    <PropertyValueFactory property="stock" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="productNameRow" prefWidth="168.80001831054688" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="productName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="categoryRow" prefWidth="157.5999755859375" text="Category">
+                <cellValueFactory>
+                    <PropertyValueFactory property="category" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="priceRow" minWidth="0.0" prefWidth="53.5999755859375" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="descriptionRow" prefWidth="202.39996337890625" text="Description">
+                <cellValueFactory>
+                    <PropertyValueFactory property="description" />
+                </cellValueFactory>
+            </TableColumn>
         </columns>
     </TableView>
-    <Label layoutX="17.0" layoutY="261.0" text="Quantity:" />
-    <Button fx:id="addOrder" layoutX="16.0" layoutY="326.0" mnemonicParsing="false" text="Add Order" onAction="#addOrder"/>
-    <Button fx:id="Cancel" layoutX="105.0" layoutY="326.0" mnemonicParsing="false" text="Cancel" onAction="#cancel" />
-    <TextField fx:id="quantityInput" layoutX="105.0" layoutY="257.0" />
-    <Label fx:id="message"/>
 
-</AnchorPane>
+    <HBox spacing="10">
+        <Label text="Quantity:" />
+        <TextField fx:id="quantityInput" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Button fx:id="addOrder" mnemonicParsing="false" text="Add Order" onAction="#addOrder"/>
+        <Button fx:id="Cancel" mnemonicParsing="false" text="Cancel" onAction="#cancel" />
+    </HBox>
+    <Label fx:id="message"/>
+</VBox>

@@ -6,6 +6,8 @@ public class Product implements Serializable  {
     private String category;
     private double price;
     private String description;
+    private int quantity;
+    private double finalPrice;
 
     public Product(int stock, String productName, String category, double price, String description) {
         this.stock = stock;
@@ -13,6 +15,34 @@ public class Product implements Serializable  {
         this.category = category;
         this.price = price;
         this.description = description;
+    }
+
+    public Product(int quantity, String productName, String category, double finalPrice){
+        this.quantity = quantity;
+        this.productName = productName;
+        this.category = category;
+        this.finalPrice = finalPrice;
+    }
+
+    public double getFinalPrice() {
+        return finalPrice;
+    }
+
+    public void setFinalPrice(double finalPrice) {
+        this.finalPrice = finalPrice;
+    }
+
+    public void reduceStock(int quantity) {
+        if (stock >= quantity) {
+            stock -= quantity;
+        } else {
+            throw new IllegalArgumentException("Not enough stock");
+        }
+    }
+
+    public double getTotalPrice() {
+        this.finalPrice = price * quantity;
+        return finalPrice;
     }
 
     public int getStock() {
@@ -53,5 +83,13 @@ public class Product implements Serializable  {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

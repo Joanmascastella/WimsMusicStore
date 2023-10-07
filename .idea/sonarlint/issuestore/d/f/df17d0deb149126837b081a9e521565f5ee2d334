@@ -1,3 +1,13 @@
 
+Q
+java:S3740"/Provide the parametrized type for this generic.(‚±ÃÇûÿÿÿÿ8íù°Ï°1
 ž
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ë ”…8¿ ú®°1
+java:S1186="€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÎÁö®8€ú°Ï°1
+£
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(åöíßúÿÿÿÿ8Óí€Ð°1
+r
+java:S1450"URemove the "orders" field and declare it as a local variable in the relevant methods.(®½Â´8èÞØÑ°1
+O
+java:S1172."2Remove this unused method parameter "actionEvent".(ûë”®8ƒú°Ï°1
+l
+java:S1128"JRemove this unused import 'com.inholland.nl.wimsmusicstore.Model.Product'.(Ê¨¨Ëùÿÿÿÿ8•ûØÑ°1

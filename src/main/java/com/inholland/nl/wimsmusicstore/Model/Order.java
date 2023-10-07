@@ -1,8 +1,9 @@
 package com.inholland.nl.wimsmusicstore.Model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Order {
+public class Order implements Serializable {
     private User user;
     private List<Product> products;
 
