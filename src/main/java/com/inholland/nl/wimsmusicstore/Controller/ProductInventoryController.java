@@ -42,9 +42,30 @@ public class ProductInventoryController implements Initializable {
     }
 
     public void onAddProductButtonClick(ActionEvent actionEvent) {
+        try {
+            int stockValue = Integer.parseInt(stock.getText());
+            double priceValue = Double.parseDouble(price.getText());
+
+            Product product = new Product(stockValue, productName.getText(), category.getText(), priceValue, description.getText());
+            products.add(product);
+            clearFields();
+
+        } catch (NumberFormatException e) {
+
+            System.err.println("Error converting stock or price values. Please enter valid numbers.");
+        }
     }
 
+
     public void onDeleteButtonClick(ActionEvent actionEvent) {
+    }
+
+    public void clearFields(){
+        stock.clear();
+        productName.clear();
+        category.clear();
+        price.clear();
+        description.clear();
     }
 
 }
