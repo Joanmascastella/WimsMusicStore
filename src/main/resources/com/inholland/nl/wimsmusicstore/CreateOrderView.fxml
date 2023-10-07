@@ -2,11 +2,78 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.CreateOrderController">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<VBox prefHeight="600.0" prefWidth="650" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.CreateOrderController">
+  <padding>
+    <Insets topRightBottomLeft="10" />
+  </padding>
+  <Label text="Create order">
+    <font>
+      <Font name="System Bold" size="20.0" />
+    </font></Label>
+  <Label text="Customer Information">
+    <font>
+      <Font size="15.0" />
+    </font></Label>
 
+  <HBox spacing="10" alignment="CENTER_LEFT">
+    <Label text="First name:" maxWidth="150" />
+    <TextField  fx:id="firstNameTextField" prefWidth="200" promptText="First name" />
+  </HBox>
+  <HBox spacing="10" alignment="CENTER_LEFT">
+    <Label text="Last name:" maxWidth="150" />
+    <TextField fx:id="lastNameTextField" prefWidth="200" promptText="Last Name" />
+  </HBox>
+  <HBox spacing="10" alignment="CENTER_LEFT">
+    <Label text="E-mail address:" maxWidth="150" />
+    <TextField  fx:id="emailTextField" prefWidth="200" promptText="E-mail Address" />
+  </HBox>
+  <HBox spacing="10" alignment="CENTER_LEFT">
+    <Label text="Phone number:" maxWidth="150" />
+    <TextField  fx:id="phoneNumberTextField" prefWidth="200" promptText="Phone Number" />
+  </HBox>
 
-  <Label text="Create order"/>
+  <Label text="Products">
+    <font>
+      <Font size="15.0" />
+    </font></Label>
 
+  <TableView fx:id="productTableView">
+    <placeholder>
+      <Label text="Please select an order"/>
+    </placeholder>
+    <columns>
+      <TableColumn fx:id="quantityRow" prefWidth="60.40002477169037" text="Quantity">
+        <cellValueFactory>
+          <PropertyValueFactory property="quantity" />
+        </cellValueFactory>
+      </TableColumn>
+      <TableColumn fx:id="productNameRow" prefWidth="170.80001831054688" text="Name">
+        <cellValueFactory>
+          <PropertyValueFactory property="productName" />
+        </cellValueFactory>
+      </TableColumn>
+      <TableColumn fx:id="categoryRow" prefWidth="157.5999755859375" text="Category">
+        <cellValueFactory>
+          <PropertyValueFactory property="category" />
+        </cellValueFactory>
+      </TableColumn>
+      <TableColumn fx:id="priceRow" minWidth="0.0" prefWidth="53.5999755859375" text="Price">
+        <cellValueFactory>
+          <PropertyValueFactory property="price" />
+        </cellValueFactory>
+      </TableColumn>
+    </columns>
+  </TableView>
 
+  <!-- Row of buttons -->
+  <HBox spacing="10">
+    <Button fx:id="addOrderButton" text="Add Order" onAction="#addOrderButton" />
+    <Button fx:id="deleteOrderButton" text="Delete Order" onAction="#deletOrderButton"/>
+    <Button fx:id="createOrderButton" text="Create Order" onAction="#createOrderButton"/>
+  </HBox>
+  <Label fx:id="message" style="-fx-text-fill: red" />
 </VBox>
