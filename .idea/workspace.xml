@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Navigation and everything set up correctly">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/CreateOrderView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/CreateOrderView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/ProductInventoryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/ProductInventoryView.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="All views now open with their content" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1696604118666</updated>
       <workItem from="1696604119654" duration="930000" />
-      <workItem from="1696605095299" duration="9013000" />
+      <workItem from="1696605095299" duration="9150000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -125,7 +119,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696613724432</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="All views now open with their content">
+      <option name="closed" value="true" />
+      <created>1696614175873</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696614175873</updated>
+    </task>
+    <task id="LOCAL-00008" summary="All views now open with their content">
+      <option name="closed" value="true" />
+      <created>1696614270890</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696614270890</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +149,7 @@
     <MESSAGE value="Navigation done properly" />
     <MESSAGE value="Navigation done working" />
     <MESSAGE value="Navigation and everything set up correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Navigation and everything set up correctly" />
+    <MESSAGE value="All views now open with their content" />
+    <option name="LAST_COMMIT_MESSAGE" value="All views now open with their content" />
   </component>
 </project>

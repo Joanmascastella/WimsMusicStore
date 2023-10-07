@@ -1,0 +1,17 @@
+
+O
+java:S1172<"2Remove this unused method parameter "actionEvent".(Í˜ñß8Şú°°1
+T
+java:S1172@"2Remove this unused method parameter "actionEvent".(µÍÁùÿÿÿÿ8ßú°°1
+T
+java:S1172D"2Remove this unused method parameter "actionEvent".(ÈÃ‰ÿÿÿÿÿ8ĞØ³°°1
+T
+java:S1172H"2Remove this unused method parameter "actionEvent".(ı²í®ûÿÿÿÿ8ĞØ³°°1
+}
+java:S6201R"`Replace this instanceof check and cast with 'instanceof DashboardController dashboardController'(ù¨8ÖØ³°°1
+†
+java:S6201V"dReplace this instanceof check and cast with 'instanceof CreateOrderController createOrderController'(Åí‘Íÿÿÿÿÿ8ÖØ³°°1
+
+java:S6201Y"nReplace this instanceof check and cast with 'instanceof ProductInventoryController productInventoryController'(æ¿§üÿÿÿÿ8‹š«°°1
+ˆ
+java:S6201\"fReplace this instanceof check and cast with 'instanceof OrderHistoryController orderHistoryController'(·í¤ûÿÿÿÿ8‹š«°°1
