@@ -20,17 +20,17 @@
         <columns>
             <TableColumn fx:id="dateTimeRow" prefWidth="99.80002343654633" text="Date/Time">
                 <cellValueFactory>
-                    <PropertyValueFactory property="dateTime" />
+                    <PropertyValueFactory property="orderDate" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="userNameRow" prefWidth="300.1999740600586" text="Name">
                 <cellValueFactory>
-                    <PropertyValueFactory property="userName" />
+                    <PropertyValueFactory property="firstName" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="totalPriceRow" prefWidth="211.80001831054688" text="Total Price">
                 <cellValueFactory>
-                    <PropertyValueFactory property="totalPrice" />
+                    <PropertyValueFactory property="finalPrice" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
@@ -63,7 +63,7 @@
             </TableColumn>
             <TableColumn fx:id="priceRow" minWidth="0.0" prefWidth="156.60000610351562" text="Price">
                 <cellValueFactory>
-                    <PropertyValueFactory property="price" />
+                    <PropertyValueFactory property="finalPrice" />
                 </cellValueFactory>
             </TableColumn>
         </columns>

@@ -2,12 +2,22 @@ package com.inholland.nl.wimsmusicstore.Model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.time.LocalDateTime;
+
 
 public class Order implements Serializable {
     private User user;
+    private Product product;
     private List<Product> products;
+    private LocalDateTime orderDate;
 
     public Order(User user, List<Product> products) {
+        this.user = user;
+        this.products = products;
+    }
+
+    public Order(LocalDateTime orderDate, User user, List<Product> products) {
+        this.orderDate = orderDate;
         this.user = user;
         this.products = products;
     }
@@ -18,6 +28,22 @@ public class Order implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
     }
 
     public List<Product> getProducts() {

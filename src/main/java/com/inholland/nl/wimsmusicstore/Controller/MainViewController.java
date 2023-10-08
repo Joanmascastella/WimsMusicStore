@@ -92,6 +92,7 @@ public class MainViewController {
             } else if (controller instanceof OrderHistoryController) {
                 OrderHistoryController orderHistoryController = (OrderHistoryController) controller;
                 orderHistoryController.setDatabase(database);
+                orderHistoryController.loadData();
             }
 
             newViewContainter.getChildren().setAll(navigationView);

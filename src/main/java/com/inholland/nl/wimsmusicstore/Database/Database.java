@@ -72,6 +72,13 @@ public class Database {
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
+        } else {
+            User defaultUser = new User("John", "Micheal", "john.Micheals@email.com", 1234567890);
+            List<Product> defaultProducts = new ArrayList<>();
+            defaultProducts.add(new Product(5, "White Guitar", "Strings", 1500.5));
+            defaultProducts.add(new Product(3, "Black Guitar", "Strings", 1300.3));
+            Order defaultOrder = new Order(defaultUser, defaultProducts);
+            orders.add(defaultOrder);
         }
     }
 
