@@ -78,7 +78,6 @@ public class MainViewController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             VBox navigationView = loader.load();
             Object controller = loader.getController();
-
             if (controller instanceof DashboardController) {
                 DashboardController dashboardController = (DashboardController) controller;
                 dashboardController.setDatabase(database);

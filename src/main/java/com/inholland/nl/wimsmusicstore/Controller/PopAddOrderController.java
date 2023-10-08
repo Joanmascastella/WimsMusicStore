@@ -1,9 +1,8 @@
 package com.inholland.nl.wimsmusicstore.Controller;
 
 import com.inholland.nl.wimsmusicstore.Database.Database;
-import com.inholland.nl.wimsmusicstore.Model.Order;
 import com.inholland.nl.wimsmusicstore.Model.Product;
-import com.inholland.nl.wimsmusicstore.ProductSelectedListener;
+import com.inholland.nl.wimsmusicstore.Interface.ProductSelectedListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

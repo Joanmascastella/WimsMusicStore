@@ -1,12 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.OrderHistoryController">
+    <padding>
+        <Insets topRightBottomLeft="10" />
+    </padding>
 
+    <Label text="Order History">
+        <font>
+            <Font size="20.0" />
+        </font></Label>
 
-    <Label text="OrderHistory"/>
+    <TableView fx:id="orderView">
+        <columns>
+            <TableColumn fx:id="dateTimeRow" prefWidth="99.80002343654633" text="Date/Time">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dateTime" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="userNameRow" prefWidth="300.1999740600586" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="userName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="totalPriceRow" prefWidth="211.80001831054688" text="Total Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="totalPrice" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
 
+    <Label text="Order Products">
+        <font>
+            <Font size="18.0" />
+        </font></Label>
+
+    <TableView fx:id="orderProductsView">
+        <placeholder>
+            <Label text="Select an order to view the products"/>
+        </placeholder>
+        <columns>
+            <TableColumn fx:id="quantityRow" prefWidth="77.80002343654633" text="Quantity">
+                <cellValueFactory>
+                    <PropertyValueFactory property="quantity" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="productNameRow" prefWidth="224.79998016357422" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="productName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="categoryRow" prefWidth="186.4000244140625" text="Category">
+                <cellValueFactory>
+                    <PropertyValueFactory property="category" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="priceRow" minWidth="0.0" prefWidth="156.60000610351562" text="Price">
+                <cellValueFactory>
+                    <PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
 
 </VBox>
