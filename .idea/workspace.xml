@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="made order history UI and made sure serilization works when file does not exist">
+      <change afterPath="$PROJECT_DIR$/orders.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.dat" beforeDir="false" afterPath="$PROJECT_DIR$/products.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/CreateOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/OrderHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/OrderHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

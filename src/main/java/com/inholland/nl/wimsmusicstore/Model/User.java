@@ -2,7 +2,10 @@ package com.inholland.nl.wimsmusicstore.Model;
 
 import com.inholland.nl.wimsmusicstore.Enum.UserType;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
     private String username;
     private String password;
     private String firstName;
@@ -48,39 +51,16 @@ public class User {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
-        this.userType = userType;
-    }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 }

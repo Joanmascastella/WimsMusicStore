@@ -41,9 +41,9 @@ public class Product implements Serializable  {
     }
 
     public double getTotalPrice() {
-        this.finalPrice = price * quantity;
-        return finalPrice;
+        return price * quantity;
     }
+
 
     public int getStock() {
         return stock;

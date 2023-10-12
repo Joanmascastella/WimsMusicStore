@@ -1,9 +1,12 @@
 package com.inholland.nl.wimsmusicstore.Controller;
+
 import com.inholland.nl.wimsmusicstore.Database.Database;
 import com.inholland.nl.wimsmusicstore.Model.Order;
 import com.inholland.nl.wimsmusicstore.Model.Product;
 import com.inholland.nl.wimsmusicstore.Model.User;
 import com.inholland.nl.wimsmusicstore.Interface.ProductSelectedListener;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,14 +25,15 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CreateOrderController implements Initializable {
-    private ObservableList<Order> orders;
     private List<Product> selectedProducts = new ArrayList<>();
 
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
     @FXML private TextField emailTextField;
     @FXML private TextField phoneNumberTextField;
-    @FXML private TableView productTableView;
+    @FXML private TableView<Product> productTableView;
+    @FXML private TableColumn<Product, Integer> quantityRow;
+    @FXML private TableColumn<Product, Double> priceRow;
     @FXML private Button addOrderButton;
     @FXML private Button deleteOrderButton;
     @FXML private Button createOrderButton;
@@ -39,19 +43,24 @@ public class CreateOrderController implements Initializable {
 
     public void setDatabase(Database database) {
         this.database = database;
-        loadData();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        quantityRow.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getQuantity()).asObject());
+        priceRow.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getFinalPrice()).asObject());
+        productTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldProduct, newProduct) -> {
+            if (newProduct != null) {
+                selectedProducts.add(newProduct);
+            }
+        });
     }
-    public void loadData() {
-        orders = FXCollections.observableArrayList(database.getOrders());
-        productTableView.setItems(orders);
-    }
+
     public void setOnProductSelected(ProductSelectedListener listener) {
         this.listener = listener;
     }
+
     public void addOrderButton(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/inholland/nl/wimsmusicstore/PopUpViews/PopUpAddOrder.fxml"));
@@ -70,6 +79,7 @@ public class CreateOrderController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void updateTableView() {
         ObservableList<Product> observableProducts = FXCollections.observableArrayList(selectedProducts);
         productTableView.setItems(observableProducts);
@@ -101,7 +111,7 @@ public class CreateOrderController implements Initializable {
         clearFields();
     }
 
-    public void clearFields(){
+    public void clearFields() {
         firstNameTextField.clear();
         lastNameTextField.clear();
         emailTextField.clear();
