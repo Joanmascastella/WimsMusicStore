@@ -3,6 +3,7 @@ import com.inholland.nl.wimsmusicstore.Model.Order;
 import com.inholland.nl.wimsmusicstore.Model.Product;
 import com.inholland.nl.wimsmusicstore.Model.User;
 import com.inholland.nl.wimsmusicstore.Enum.UserType;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class Database {
     private final List<User> users;
     private List<Product> products = new ArrayList<>();
     private List<Order> orders = new ArrayList<>();
+    private DataWrapper databaseData;
 
     public Database(){
         users = new ArrayList<>();
@@ -20,91 +22,70 @@ public class Database {
                         new User("Manager", "Manager123@", "John", "Micheal", "john.micheal@email.com", 987654210, UserType.manager)
                 )
         );
-        loadProductsFromFile();
-        loadOrdersFromFile();
+        loadDatabaseFromFile();
     }
 
     public User getUser(String username, String password) {
         for(User user : users) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
-
                 return user;
             }
         }
         return null;
     }
+
     public List<Product> getProducts() {
         return products;
     }
+
     public void addProduct(Product product) {
         products.add(product);
-        saveProductsToFile();
+        saveDatabaseToFile();
     }
+
     public void removeProduct(Product product) {
         products.remove(product);
-        saveProductsToFile();
+        saveDatabaseToFile();
     }
+
     public List<Order> getOrders() {
         return orders;
     }
+
     public void addOrder(Order order){
         orders.add(order);
-        saveOrdersToFile();
+        saveDatabaseToFile();
     }
 
     public void removeProductFromOrder(Order order){
         orders.remove(order);
-        saveOrdersToFile();
+        saveDatabaseToFile();
     }
 
-    public void saveOrdersToFile() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("orders.dat"))) {
-            oos.writeObject(orders);
+    public void saveDatabaseToFile() {
+        databaseData = new DataWrapper(users, products, orders);
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("database.dat"))) {
+            oos.writeObject(databaseData);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public void loadOrdersFromFile() {
-        File file = new File("orders.dat");
+
+    public void loadDatabaseFromFile() {
+        File file = new File("database.dat");
         if (file.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-                orders = (List<Order>) ois.readObject();
+                databaseData = (DataWrapper) ois.readObject();
+                users.clear();
+                products.clear();
+                orders.clear();
+                users.addAll(databaseData.users);
+                products.addAll(databaseData.products);
+                orders.addAll(databaseData.orders);
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
-        } else {
-            User defaultUser = new User("John", "Micheal", "john.Micheals@email.com", 1234567890);
-            List<Product> defaultProducts = new ArrayList<>();
-            defaultProducts.add(new Product(5, "White Guitar", "Strings", 1500.5));
-            defaultProducts.add(new Product(3, "Black Guitar", "Strings", 1300.3));
-            Order defaultOrder = new Order(defaultUser, defaultProducts);
-            orders.add(defaultOrder);
         }
     }
-
-    public void saveProductsToFile() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("products.dat"))) {
-            oos.writeObject(products);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public void loadProductsFromFile() {
-        File file = new File("products.dat");
-        if (file.exists()) {
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-                products = (List<Product>) ois.readObject();
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        } else {
-            products.addAll(
-                    List.of(
-                            new Product(3,"White Guitar", "Strings", 2000.3, "White wide neck guitar"),
-                            new Product(5,"Black Guitar", "Strings", 1920.43, "Black wide neck guitar")
-                    )
-            );
-        }
-    }
-
 }
