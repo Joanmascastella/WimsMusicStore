@@ -71,10 +71,11 @@ public class CreateOrderController implements Initializable {
                 selectedProducts.add(product);
                 updateTableView();
             });
-            Stage stage = new Stage();
-            stage.setTitle("Add Product To Order");
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Add Product To Order");
+            dialog.getDialogPane().setContent(root);
+            dialog.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
