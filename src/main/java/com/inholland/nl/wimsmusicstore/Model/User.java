@@ -8,11 +8,11 @@ public class User implements Serializable {
 
     private String username;
     private String password;
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
     private UserType userType;
-    private String email;
-    private int phoneNumber;
+    private final String email;
+    private final int phoneNumber;
 
     public User(String username, String password, String firstName, String lastName, String email, int phoneNumber, UserType userType) {
         this.username = username;
@@ -24,7 +24,7 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
- public User(String firstName, String lastName, String email, int phoneNumber){
+    public User(String firstName, String lastName, String email, int phoneNumber){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -46,21 +46,19 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
-
-
     public String getLastName() {
         return lastName;
     }
-
-
     public UserType getUserType() {
         return userType;
     }
-
-
+    public String getEmail() {
+        return email;
+    }
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
 }
