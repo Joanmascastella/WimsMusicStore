@@ -40,7 +40,7 @@ public class PopAddOrderController implements Initializable {
     public void setOnProductSelected(ProductSelectedListener listener) {
         this.listener = listener;
     }
-    public void addOrder(ActionEvent actionEvent) {
+    public void addOrder() {
         Product selectedProduct = (Product) productTableView.getSelectionModel().getSelectedItem();
         int quantity = Integer.parseInt(quantityInput.getText());
         selectedProduct.reduceStock(quantity);
@@ -50,7 +50,7 @@ public class PopAddOrderController implements Initializable {
         currentStage.close();
     }
 
-    public void cancel(ActionEvent actionEvent) {
+    public void cancel() {
         Stage currentStage = (Stage) Cancel.getScene().getWindow();
         currentStage.close();
     }

@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static java.lang.System.*;
+
 public class CreateOrderController implements Initializable {
     private List<Product> selectedProducts = new ArrayList<>();
 
@@ -77,6 +79,7 @@ public class CreateOrderController implements Initializable {
             dialog.getDialogPane().setContent(root);
             dialog.showAndWait();
         } catch (IOException e) {
+            out.println("Unable to load view");
             e.printStackTrace();
         }
     }
@@ -109,6 +112,7 @@ public class CreateOrderController implements Initializable {
         );
         Order order = new Order(user, selectedProducts);
         database.addOrder(order);
+        message.setText("Created Order");
         clearFields();
     }
 

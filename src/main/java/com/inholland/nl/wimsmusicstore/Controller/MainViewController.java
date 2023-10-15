@@ -10,6 +10,8 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
+import static java.lang.System.out;
+
 public class MainViewController {
     @FXML private VBox newViewContainter;
     @FXML private Button dashboardButton;
@@ -54,22 +56,22 @@ public class MainViewController {
     }
 
     private void loadDefaultView() {
-        navigateToDashboard(null);
+        navigateToDashboard();
     }
 
-    public void navigateToDashboard(ActionEvent actionEvent) {
+    public void navigateToDashboard() {
         loadView("/com/inholland/nl/wimsmusicstore/DashboardView.fxml");
     }
 
-    public void navigateToCreateOrder(ActionEvent actionEvent) {
+    public void navigateToCreateOrder() {
         loadView("/com/inholland/nl/wimsmusicstore/CreateOrderView.fxml");
     }
 
-    public void navigateToProductInventory(ActionEvent actionEvent) {
+    public void navigateToProductInventory() {
         loadView("/com/inholland/nl/wimsmusicstore/ProductInventoryView.fxml");
     }
 
-    public void navigateToOrderHistory(ActionEvent actionEvent) {
+    public void navigateToOrderHistory() {
         loadView("/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml");
     }
 
@@ -78,25 +80,22 @@ public class MainViewController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             VBox navigationView = loader.load();
             Object controller = loader.getController();
-            if (controller instanceof DashboardController) {
-                DashboardController dashboardController = (DashboardController) controller;
+            if (controller instanceof DashboardController dashboardController) {
                 dashboardController.setDatabase(database);
                 dashboardController.setUser(user);
-            } else if (controller instanceof CreateOrderController) {
-                CreateOrderController createOrderController = (CreateOrderController) controller;
+            } else if (controller instanceof CreateOrderController createOrderController) {
                 createOrderController.setDatabase(database);
-            } else if (controller instanceof ProductInventoryController) {
-                ProductInventoryController productInventoryController = (ProductInventoryController) controller;
+            } else if (controller instanceof ProductInventoryController productInventoryController) {
                 productInventoryController.setDatabase(database);
                 productInventoryController.loadData();
-            } else if (controller instanceof OrderHistoryController) {
-                OrderHistoryController orderHistoryController = (OrderHistoryController) controller;
+            } else if (controller instanceof OrderHistoryController orderHistoryController) {
                 orderHistoryController.setDatabase(database);
                 orderHistoryController.loadData();
             }
 
             newViewContainter.getChildren().setAll(navigationView);
-        } catch (IOException e) {
+        }catch (IOException e) {
+            out.println("Unable to find view");
             e.printStackTrace();
         }
     }

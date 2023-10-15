@@ -12,6 +12,8 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.System.*;
+
 public class ProductInventoryController implements Initializable {
     private ObservableList<Product> products;
     private Database database;
@@ -40,7 +42,7 @@ public class ProductInventoryController implements Initializable {
         productTableView.setItems(products);
     }
 
-    public void onAddProductButtonClick(ActionEvent actionEvent) {
+    public void onAddProductButtonClick() {
         try {
             //Parse int and double values
             int stockValue = Integer.parseInt(stock.getText());
@@ -56,13 +58,13 @@ public class ProductInventoryController implements Initializable {
             message.setText("Product has been added successfully.");
         } catch (NumberFormatException e) {
             message.setText("Error converting stock or price values. Please enter valid numbers.");
-            System.err.println("Error converting stock or price values. Please enter valid numbers.");
+            err.println("Error converting stock or price values. Please enter valid numbers.");
         } catch (Exception e) {
             message.setText("Error adding product.");
-            System.err.println(e.getMessage());
+            err.println(e.getMessage());
         }
     }
-    public void onEditProductButtonClick(ActionEvent actionEvent) {
+    public void onEditProductButtonClick() {
         if (selectedProductForEdit == null) {
             setPromptText();
         } else {
@@ -83,7 +85,7 @@ public class ProductInventoryController implements Initializable {
             }
         } catch (Exception e) {
             message.setText("Error setting product details.");
-            System.err.println(e.getMessage());
+            err.println(e.getMessage());
         }
     }
     private void updateProduct() {
@@ -91,11 +93,7 @@ public class ProductInventoryController implements Initializable {
             // This is checking if the fields are empty
             int stockValue = stock.getText().isEmpty() ? selectedProductForEdit.getStock() : Integer.parseInt(stock.getText());
             double priceValue = price.getText().isEmpty() ? selectedProductForEdit.getPrice() : Double.parseDouble(price.getText());
-            String updatedProductName = productName.getText().isEmpty() ? selectedProductForEdit.getProductName() : productName.getText();
-            String updatedCategory = category.getText().isEmpty() ? selectedProductForEdit.getCategory() : category.getText();
-            String updatedDescription = description.getText().isEmpty() ? selectedProductForEdit.getDescription() : description.getText();
-            // Creating the updated product
-            Product updatedProduct = new Product(stockValue, updatedProductName, updatedCategory, priceValue, updatedDescription);
+            Product updatedProduct = getProduct(stockValue, priceValue);
             // Replacing the old product in the database
             database.removeProduct(selectedProductForEdit);
             database.addProduct(updatedProduct);
@@ -107,13 +105,22 @@ public class ProductInventoryController implements Initializable {
             message.setText("Product has been edited successfully.");
         } catch (NumberFormatException e) {
             message.setText("Error converting stock or price values. Please enter valid numbers.");
-            System.err.println("Error converting stock or price values. Please enter valid numbers.");
+            err.println("Error converting stock or price values. Please enter valid numbers.");
         } catch (Exception e) {
             message.setText("Error updating product.");
-            System.err.println(e.getMessage());
+            err.println(e.getMessage());
         }
     }
-    public void onDeleteButtonClick(ActionEvent actionEvent) {
+
+    private Product getProduct(int stockValue, double priceValue) {
+        String updatedProductName = productName.getText().isEmpty() ? selectedProductForEdit.getProductName() : productName.getText();
+        String updatedCategory = category.getText().isEmpty() ? selectedProductForEdit.getCategory() : category.getText();
+        String updatedDescription = description.getText().isEmpty() ? selectedProductForEdit.getDescription() : description.getText();
+        // Creating the updated product
+        return new Product(stockValue, updatedProductName, updatedCategory, priceValue, updatedDescription);
+    }
+
+    public void onDeleteButtonClick() {
         try {
             //Gets the selected product removes it from the list and file
             ObservableList<Product> productsToDelete = productTableView.getSelectionModel().getSelectedItems();
@@ -125,7 +132,7 @@ public class ProductInventoryController implements Initializable {
             message.setText("Product(s) have been deleted successfully.");
         } catch (Exception e) {
             message.setText("Error deleting product(s).");
-            System.err.println(e.getMessage());
+            err.println(e.getMessage());
         }
     }
 
