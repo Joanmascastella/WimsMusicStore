@@ -1,15 +1,11 @@
 
-Q
-java:S3740 "/Provide the parametrized type for this generic.(‚±ÃÇûÿÿÿÿ8Ñ–Ò°1
-
-java:S1186N"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÎÁö®8å–Ò°1
 t
-java:S1450%"WRemove the "listener" field and declare it as a local variable in the relevant methods.(ñŞŠƒ8 ³«Ò°1
-r
-java:S1450"URemove the "orders" field and declare it as a local variable in the relevant methods.(®½Â´8£‡´Ò°1
+java:S1450)"WRemove the "listener" field and declare it as a local variable in the relevant methods.(ñŞŠƒ8ŠÜäš²1
 O
-java:S11727"2Remove this unused method parameter "actionEvent".(ûë”®8ò–Ò°1
+java:S1172@"2Remove this unused method parameter "actionEvent".(ûë”®8‘Üäš²1
+O
+java:S1172X"2Remove this unused method parameter "actionEvent".(ÎÁö®8 Üäš²1
 T
-java:S1172Q"2Remove this unused method parameter "actionEvent".(åöíßúÿÿÿÿ8Üş£Ò°1
+java:S1172e"2Remove this unused method parameter "actionEvent".(åöíßúÿÿÿÿ8¡Üäš²1
 I
-java:S1068%",Remove this unused "listener" private field.(ñŞŠƒ8øäªÒ°1
+java:S1068)",Remove this unused "listener" private field.(ñŞŠƒ8¤Üäš²1

@@ -1,12 +1,10 @@
 
 Q
-java:S3740"/Provide the parametrized type for this generic.(‚±ÃÇûÿÿÿÿ8‡™†Ò°1
-m	java:S116"QRename this field "Cancel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÑŒÄ8™™†Ò°1
+java:S3740"/Provide the parametrized type for this generic.(‚±ÃÇûÿÿÿÿ8‡™†Ò°1
+m	java:S116"QRename this field "Cancel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÑŒÄ8™™†Ò°1
 y
-java:S1450"WRemove the "products" field and declare it as a local variable in the relevant methods.(Œä£‰ıÿÿÿÿ8š™†Ò°1
+java:S1450"WRemove the "products" field and declare it as a local variable in the relevant methods.(Œä£‰ıÿÿÿÿ8¿ÃÍ™²1
 O
-java:S1172,"2Remove this unused method parameter "actionEvent".(‚§Ê‰8œ™†Ò°1
+java:S1172+"2Remove this unused method parameter "actionEvent".(‚§Ê‰8°óı™²1
 T
-java:S11726"2Remove this unused method parameter "actionEvent".(Å½ï™üÿÿÿÿ8“¤¸Ò°1
-e
-java:S1128"HRemove this unused import 'com.inholland.nl.wimsmusicstore.Model.Order'.(Âß½8šÎ©Ó°1
+java:S11725"2Remove this unused method parameter "actionEvent".(Å½ï™üÿÿÿÿ8àÁš²1
