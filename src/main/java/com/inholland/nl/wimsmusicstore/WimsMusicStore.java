@@ -11,9 +11,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class WimsMusicStore extends Application {
+
+
     @Override
     public void start(Stage stage) throws IOException {
-        Database database = new Database();
+        Database database;
+        database = new Database();
+
         FXMLLoader fxmlLoader = new FXMLLoader(WimsMusicStore.class.getResource("LoginView.fxml"));
         Parent root = fxmlLoader.load();
         LoginController loginController = fxmlLoader.getController();
@@ -23,6 +27,7 @@ public class WimsMusicStore extends Application {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+        Runtime.getRuntime().addShutdownHook(new Thread(database::saveDatabaseToFile));
     }
 
     public static void main(String[] args) {
