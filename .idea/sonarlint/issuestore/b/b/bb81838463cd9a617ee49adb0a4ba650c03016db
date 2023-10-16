@@ -1,3 +1,13 @@
 
+Q
+java:S3740"/Provide the parametrized type for this generic.(ğÉÌüÿÿÿÿ8³Üï¡³1
+L
+java:S3740"/Provide the parametrized type for this generic.( ¶µˆ8³Üï¡³1
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•‘İŸüÿÿÿÿ8¾Üï¡³1
 
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ë ”…8–Õú®°1
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µÜ¸ğ8¿Üï¡³1
+y
+java:S1450"WRemove the "database" field and declare it as a local variable in the relevant methods.(áæß”üÿÿÿÿ8¿Üï¡³1
+N
+java:S1068",Remove this unused "database" private field.(áæß”üÿÿÿÿ8ÃÜï¡³1

@@ -1,11 +1,15 @@
 
 t
-java:S1450)"WRemove the "listener" field and declare it as a local variable in the relevant methods.(ñŞŠƒ8ŠÜäš²1
+java:S1450+"WRemove the "listener" field and declare it as a local variable in the relevant methods.(ñŞŠƒ8ï¥á¡³1
 O
-java:S1172@"2Remove this unused method parameter "actionEvent".(ûë”®8‘Üäš²1
+java:S1172B"2Remove this unused method parameter "actionEvent".(ûë”®8ƒ¦á¡³1
 O
-java:S1172X"2Remove this unused method parameter "actionEvent".(ÎÁö®8 Üäš²1
+java:S1172\"2Remove this unused method parameter "actionEvent".(ÎÁö®8…¦á¡³1
 T
-java:S1172e"2Remove this unused method parameter "actionEvent".(åöíßúÿÿÿÿ8¡Üäš²1
+java:S1172i"2Remove this unused method parameter "actionEvent".(åöíßúÿÿÿÿ8îÙá¡³1
+L
+java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8óÙá¡³1
+Q
+java:S1128"/Remove this unused import 'javafx.stage.Stage'.(æÄ¸²úÿÿÿÿ8óÙá¡³1
 I
-java:S1068)",Remove this unused "listener" private field.(ñŞŠƒ8¤Üäš²1
+java:S1068+",Remove this unused "listener" private field.(ñŞŠƒ8ˆ¦á¡³1

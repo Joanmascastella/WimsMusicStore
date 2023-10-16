@@ -2414,3 +2414,7 @@ w
 G.idea/sonarlint/issuestore/1/2/12a2fbcac41080b458e8c7c94add33befce1ee19,4\2\42abbecdfd2a8267796e32b2b35d55b5c290a9df
 w
 G.idea/sonarlint/issuestore/1/2/12c9ed9d1d5db72f4f2487ff7f42ec0a0aa7f537,c\a\ca7be8b87c8fec2a3e616959ba1b199dcf92048b
+w
+Gsrc/main/java/com/inholland/nl/wimsmusicstore/Database/DataWrapper.java,0\f\0fafa754ebf0528be10e5b478ec8f2779662236d
+<
+database.dat,d\c\dca21a721b66530d986ffe5f73082dd9f3d7ba24

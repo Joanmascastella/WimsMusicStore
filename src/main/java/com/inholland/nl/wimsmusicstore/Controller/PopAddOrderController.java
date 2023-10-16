@@ -43,9 +43,9 @@ public class PopAddOrderController implements Initializable {
     public void addOrder() {
         Product selectedProduct = (Product) productTableView.getSelectionModel().getSelectedItem();
         int quantity = Integer.parseInt(quantityInput.getText());
-        selectedProduct.reduceStock(quantity);
-        selectedProduct.getTotalPrice();
-        listener.onProductSelected(selectedProduct);
+        Product newProduct = new Product(quantity, selectedProduct.getProductName(), selectedProduct.getCategory(), selectedProduct.getFinalPrice());
+
+        listener.onProductSelected(newProduct);
         Stage currentStage = (Stage) addOrder.getScene().getWindow();
         currentStage.close();
     }

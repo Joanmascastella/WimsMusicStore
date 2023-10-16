@@ -4,7 +4,5 @@ java:S3740"/Provide the parametrized type for this generic.(‚±ÃÇûÿÿÿÿ8‡™†Ò°1
 m	java:S116"QRename this field "Cancel" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÑŒÄ8™™†Ò°1
 y
 java:S1450"WRemove the "products" field and declare it as a local variable in the relevant methods.(Œä£‰ıÿÿÿÿ8¿ÃÍ™²1
-O
-java:S1172+"2Remove this unused method parameter "actionEvent".(‚§Ê‰8°óı™²1
-T
-java:S11725"2Remove this unused method parameter "actionEvent".(Å½ï™üÿÿÿÿ8àÁš²1
+W
+java:S1128"5Remove this unused import 'javafx.event.ActionEvent'.(î•¯¼ıÿÿÿÿ8§µ¹¢³1
