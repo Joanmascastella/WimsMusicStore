@@ -5,7 +5,6 @@ import com.inholland.nl.wimsmusicstore.Model.Product;
 import com.inholland.nl.wimsmusicstore.Interface.ProductSelectedListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -40,15 +39,18 @@ public class PopAddOrderController implements Initializable {
     public void setOnProductSelected(ProductSelectedListener listener) {
         this.listener = listener;
     }
+
     public void addOrder() {
         Product selectedProduct = (Product) productTableView.getSelectionModel().getSelectedItem();
         int quantity = Integer.parseInt(quantityInput.getText());
-        Product newProduct = new Product(quantity, selectedProduct.getProductName(), selectedProduct.getCategory(), selectedProduct.getFinalPrice());
-
+        Product newProduct = new Product(quantity, selectedProduct.getProductName(), selectedProduct.getCategory(), selectedProduct.getPrice());
+        selectedProduct.reduceStock(quantity);
+        selectedProduct.setFinalPrice(newProduct.getPrice() * quantity);
         listener.onProductSelected(newProduct);
         Stage currentStage = (Stage) addOrder.getScene().getWindow();
         currentStage.close();
     }
+
 
     public void cancel() {
         Stage currentStage = (Stage) Cancel.getScene().getWindow();

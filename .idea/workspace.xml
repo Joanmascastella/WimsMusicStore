@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Fixing warnings cleaning up code">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cc53dd3e7864475844b76ef010c83fcd4589825" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cc53dd3e7864475844b76ef010c83fcd4589825" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7891cf02dbf8a2ffafe453b285a21c4693c8fc1e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7891cf02dbf8a2ffafe453b285a21c4693c8fc1e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/0/a033b25c0cdb9d2d22c41ad9175972cb79ea9887" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/0/a033b25c0cdb9d2d22c41ad9175972cb79ea9887" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2300900be7259b2c47ef487a177dc2e4e6a5ad2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2300900be7259b2c47ef487a177dc2e4e6a5ad2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bb81838463cd9a617ee49adb0a4ba650c03016db" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bb81838463cd9a617ee49adb0a4ba650c03016db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be2917a50df9a8e0140c5a518f79a57b9e70bca2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be2917a50df9a8e0140c5a518f79a57b9e70bca2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/df17d0deb149126837b081a9e521565f5ee2d334" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/df17d0deb149126837b081a9e521565f5ee2d334" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/dfcf0e5ef26fb321844685e71312f1a04667855e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/dfcf0e5ef26fb321844685e71312f1a04667855e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Quantity is finally freaking displaying">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.dat" beforeDir="false" afterPath="$PROJECT_DIR$/database.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/PopAddOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/PopAddOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +102,7 @@
       <workItem from="1696754585630" duration="4160000" />
       <workItem from="1697381883989" duration="355000" />
       <workItem from="1697386575862" duration="3079000" />
-      <workItem from="1697483355011" duration="563000" />
+      <workItem from="1697483355011" duration="2616000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -312,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697389662740</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Quantity is finally freaking displaying">
+      <option name="closed" value="true" />
+      <created>1697483951067</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1697483951067</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +344,7 @@
     <MESSAGE value="fixing stuff" />
     <MESSAGE value="making sure its a pop up mdoula" />
     <MESSAGE value="Fixing warnings cleaning up code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing warnings cleaning up code" />
+    <MESSAGE value="Quantity is finally freaking displaying" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quantity is finally freaking displaying" />
   </component>
 </project>

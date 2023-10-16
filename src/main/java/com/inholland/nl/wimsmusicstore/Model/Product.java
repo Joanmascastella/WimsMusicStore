@@ -1,6 +1,7 @@
 package com.inholland.nl.wimsmusicstore.Model;
 import java.io.Serializable;
-public class Product implements Serializable  {
+
+public class Product implements Serializable {
     private int stock;
     private String productName;
     private String category;
@@ -17,7 +18,7 @@ public class Product implements Serializable  {
         this.description = description;
     }
 
-    public Product(int quantity, String productName, String category, double finalPrice){
+    public Product(int quantity, String productName, String category, double finalPrice) {
         this.quantity = quantity;
         this.productName = productName;
         this.category = category;
@@ -29,7 +30,7 @@ public class Product implements Serializable  {
     }
 
     public void setFinalPrice(double finalPrice) {
-        this.finalPrice = finalPrice;
+        this.finalPrice = finalPrice * quantity;
     }
 
     public void reduceStock(int quantity) {
@@ -39,11 +40,6 @@ public class Product implements Serializable  {
             throw new IllegalArgumentException("Not enough stock");
         }
     }
-
-    public double getTotalPrice() {
-        return price * quantity;
-    }
-
 
     public int getStock() {
         return stock;
