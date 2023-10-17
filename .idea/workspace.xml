@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Adding comments">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" afterDir="false" />
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Reformating code">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cc53dd3e7864475844b76ef010c83fcd4589825" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/c/4cc53dd3e7864475844b76ef010c83fcd4589825" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7891cf02dbf8a2ffafe453b285a21c4693c8fc1e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/7891cf02dbf8a2ffafe453b285a21c4693c8fc1e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/0/a033b25c0cdb9d2d22c41ad9175972cb79ea9887" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/0/a033b25c0cdb9d2d22c41ad9175972cb79ea9887" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bb81838463cd9a617ee49adb0a4ba650c03016db" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bb81838463cd9a617ee49adb0a4ba650c03016db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/df17d0deb149126837b081a9e521565f5ee2d334" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/df17d0deb149126837b081a9e521565f5ee2d334" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/dfcf0e5ef26fb321844685e71312f1a04667855e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/dfcf0e5ef26fb321844685e71312f1a04667855e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.dat" beforeDir="false" afterPath="$PROJECT_DIR$/database.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +110,8 @@
       <workItem from="1697483355011" duration="2678000" />
       <workItem from="1697486241273" duration="161000" />
       <workItem from="1697486470575" duration="18000" />
-      <workItem from="1697526380454" duration="2982000" />
+      <workItem from="1697526380454" duration="3311000" />
+      <workItem from="1697549255933" duration="695000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -336,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697529293749</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Reformating code">
+      <option name="closed" value="true" />
+      <created>1697529526482</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1697529526482</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +361,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Dashboard Done and login done also the passing of user and database is working" />
     <MESSAGE value="Navigation done properly" />
     <MESSAGE value="Navigation done working" />
     <MESSAGE value="Navigation and everything set up correctly" />
@@ -369,6 +385,7 @@
     <MESSAGE value="Quantity is finally freaking displaying" />
     <MESSAGE value="Finally displaying price but not the correct price" />
     <MESSAGE value="Adding comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding comments" />
+    <MESSAGE value="Reformating code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformating code" />
   </component>
 </project>

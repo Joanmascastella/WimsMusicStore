@@ -87,7 +87,9 @@ public class ProductInventoryController implements Initializable {
             setPromptText();
         } else {
             updateProduct();
+            clearPromptText();
         }
+
     }
 
     //This method makes sure that the data of a selected product is loaded to the prompt text of the text fields
@@ -167,6 +169,15 @@ public class ProductInventoryController implements Initializable {
         category.clear();
         price.clear();
         description.clear();
+    }
+
+    //Clears prompt text
+    private void clearPromptText() {
+        stock.setPromptText("Stock");
+        productName.setPromptText("Product Name");
+        category.setPromptText("Category");
+        price.setPromptText("Price");
+        description.setPromptText("Description");
     }
 
 }
