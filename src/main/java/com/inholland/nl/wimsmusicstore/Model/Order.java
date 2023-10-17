@@ -11,11 +11,12 @@ public class Order implements Serializable {
     private List<Product> products;
     private LocalDateTime orderDate;
 
+    //Constructor used to make an order
     public Order(User user, List<Product> products) {
         this.user = user;
         this.products = products;
     }
-
+    //Constructor used to make an order
     public Order(LocalDateTime orderDate, User user, List<Product> products) {
         this.orderDate = orderDate;
         this.user = user;

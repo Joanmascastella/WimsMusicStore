@@ -14,6 +14,7 @@ public class Database {
     private List<Order> orders = new ArrayList<>();
     private DataWrapper databaseData;
 
+    //Creating default users
     public Database(){
         users = new ArrayList<>();
         users.addAll(
@@ -22,9 +23,11 @@ public class Database {
                         new User("Manager", "Manager123@", "John", "Micheal", "john.micheal@email.com", 987654210, UserType.manager)
                 )
         );
+        //Loading data from file
         loadDatabaseFromFile();
     }
 
+    //Validating login
     public User getUser(String username, String password) {
         for(User user : users) {
             if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -38,11 +41,12 @@ public class Database {
         return products;
     }
 
+    //This method adds new products to the existing product list and saves them
     public void addProduct(Product product) {
         products.add(product);
         saveDatabaseToFile();
     }
-
+    //This method removes products to the existing product list and saves them
     public void removeProduct(Product product) {
         products.remove(product);
         saveDatabaseToFile();
@@ -52,16 +56,18 @@ public class Database {
         return orders;
     }
 
+    //This method creates a new order and saves it to the order list
     public void addOrder(Order order){
         orders.add(order);
         saveDatabaseToFile();
     }
-
+    //This method removes products from an order and saves to list
     public void removeProductFromOrder(Order order){
         orders.remove(order);
         saveDatabaseToFile();
     }
 
+    //This method serializes the database data by making use of the data wrapper
     public void saveDatabaseToFile() {
         databaseData = new DataWrapper(users, products, orders);
 
@@ -72,6 +78,7 @@ public class Database {
         }
     }
 
+    //This method loads all data and injects data into the corresponding lists when the application runs
     public void loadDatabaseFromFile() {
         File file = new File("database.dat");
         if (file.exists()) {

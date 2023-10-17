@@ -12,6 +12,7 @@ public class DataWrapper  implements Serializable {
     List<Product> products;
     List<Order> orders;
 
+    //This constructor is wrapping the three lists of data that I want to be saved, which be called in the database class
     public DataWrapper(List<User> users, List<Product> products, List<Order> orders) {
         this.users = users;
         this.products = products;
