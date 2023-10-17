@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -27,8 +28,8 @@ import java.util.ResourceBundle;
 import static java.lang.System.*;
 
 public class CreateOrderController implements Initializable {
+    private LocalDateTime dateTime;
     private List<Product> selectedProducts = new ArrayList<>();
-
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
     @FXML private TextField emailTextField;
@@ -42,11 +43,11 @@ public class CreateOrderController implements Initializable {
     @FXML private Label message;
     private ProductSelectedListener listener;
     private Database database;
-
+    //Sets database instance
     public void setDatabase(Database database) {
         this.database = database;
     }
-
+    //This method sets data to table view
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -58,22 +59,24 @@ public class CreateOrderController implements Initializable {
             }
         });
     }
-
+    //initializing product listner
     public void setOnProductSelected(ProductSelectedListener listener) {
         this.listener = listener;
     }
-
-    public void addOrderButton(ActionEvent actionEvent) {
+    //Loads add product popup
+    public void addOrderButton() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/inholland/nl/wimsmusicstore/PopUpViews/PopUpAddOrder.fxml"));
             Parent root = loader.load();
             PopAddOrderController popController = loader.getController();
+            //Passing database instance
             popController.setDatabase(database);
+            //sets the product listener to get those selected products and adds them to list
             popController.setOnProductSelected(product -> {
                 selectedProducts.add(product);
                 updateTableView();
             });
-
+            //Creating dialog popup to make sure user can't move on without providing an input or canceling the operation
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setTitle("Add Product To Order");
             dialog.getDialogPane().setContent(root);
@@ -83,39 +86,46 @@ public class CreateOrderController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    //Refreshes the tableview
     public void updateTableView() {
         ObservableList<Product> observableProducts = FXCollections.observableArrayList(selectedProducts);
         productTableView.setItems(observableProducts);
     }
-
-    public void deletOrderButton(ActionEvent actionEvent) {
+    //This method deletes product item from order
+    public void deletOrderButton() {
+        //Removes product from order that has been selected
         List<Product> productsToRemove = new ArrayList<>(productTableView.getSelectionModel().getSelectedItems());
-
+        //checks if an item has been selected to delete
         if (productsToRemove.isEmpty()) {
             message.setText("Please select a product to delete");
             return;
         }
+        //Removes products by calling removeall method in database
         selectedProducts.removeAll(productsToRemove);
+        //Updates the view
         updateTableView();
         productTableView.getSelectionModel().clearSelection();
         message.setText("Product(s) removed successfully!");
     }
-
-    public void createOrderButton(ActionEvent actionEvent) {
+    //This method creates orders
+    public void createOrderButton() {
+        //Parse the string input to string
         int phoneNumber = Integer.parseInt(phoneNumberTextField.getText());
+        //Creating a new user utilizing the second constructor in user
         User user = new User(
                 firstNameTextField.getText(),
                 lastNameTextField.getText(),
                 emailTextField.getText(),
                 phoneNumber
         );
-        Order order = new Order(user, selectedProducts);
+        //Creates new order utilizing the second constructor
+        Order order = new Order(dateTime, user, selectedProducts);
+        //Adds new order to list
         database.addOrder(order);
         message.setText("Created Order");
         clearFields();
     }
-
+    //Clears fields
     public void clearFields() {
         firstNameTextField.clear();
         lastNameTextField.clear();

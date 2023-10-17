@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Finally displaying price but not the correct price">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/dfcf0e5ef26fb321844685e71312f1a04667855e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/f/dfcf0e5ef26fb321844685e71312f1a04667855e" afterDir="false" />
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="Adding comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/DataWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/DataWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/WimsMusicStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/WimsMusicStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.dat" beforeDir="false" afterPath="$PROJECT_DIR$/database.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/CreateOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/OrderHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/OrderHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/PopAddOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/PopAddOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/Controller/ProductInventoryController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +110,7 @@
       <workItem from="1697483355011" duration="2678000" />
       <workItem from="1697486241273" duration="161000" />
       <workItem from="1697486470575" duration="18000" />
-      <workItem from="1697526380454" duration="629000" />
+      <workItem from="1697526380454" duration="2889000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -327,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697486036894</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Adding comments">
+      <option name="closed" value="true" />
+      <created>1697527027492</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1697527027492</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +344,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Creating Files" />
     <MESSAGE value="Dashboard Done and login done also the passing of user and database is working" />
     <MESSAGE value="Navigation done properly" />
     <MESSAGE value="Navigation done working" />
@@ -360,6 +368,7 @@
     <MESSAGE value="Fixing warnings cleaning up code" />
     <MESSAGE value="Quantity is finally freaking displaying" />
     <MESSAGE value="Finally displaying price but not the correct price" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finally displaying price but not the correct price" />
+    <MESSAGE value="Adding comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding comments" />
   </component>
 </project>

@@ -17,16 +17,17 @@ public class OrderHistoryController implements Initializable {
     @FXML private TableView orderView;
     @FXML private TableView orderProductsView;
 
+    //Sets database instance
     public void setDatabase(Database database) {
         this.database = database;
         loadData();
     }
-
+    //Allows to select items
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
+    //Loads data to tableview
     public void loadData() {
 
     }
