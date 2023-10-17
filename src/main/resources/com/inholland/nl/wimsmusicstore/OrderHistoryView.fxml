@@ -18,9 +18,9 @@
 
     <TableView fx:id="orderView">
         <columns>
-            <TableColumn fx:id="dateTimeRow" prefWidth="99.80002343654633" text="Date/Time">
+            <TableColumn fx:id="dateTimeRow" prefWidth="166.00001180171967" text="Date/Time">
             </TableColumn>
-            <TableColumn fx:id="userNameRow" prefWidth="300.1999740600586" text="Name">
+            <TableColumn fx:id="userNameRow" prefWidth="234.80001831054688" text="Name">
                 <cellValueFactory>
                     <PropertyValueFactory property="firstName" />
                 </cellValueFactory>
@@ -37,7 +37,7 @@
 
     <TableView fx:id="orderProductsView">
         <placeholder>
-            <Label text="Select an order to view the products"/>
+            <Label text="Select an order to view the products" />
         </placeholder>
         <columns>
             <TableColumn fx:id="quantityRow" prefWidth="77.80002343654633" text="Quantity">
