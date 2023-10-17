@@ -27,13 +27,11 @@ public class Product implements Serializable {
         this.category = category;
         this.finalPrice = finalPrice;
     }
-
     public double getFinalPrice() {
-        return finalPrice;
+        return finalPrice * quantity;
     }
-
     public void setFinalPrice(double finalPrice) {
-        this.finalPrice = finalPrice * quantity;
+        this.finalPrice = finalPrice;
     }
 
     public void reduceStock(int quantity) {

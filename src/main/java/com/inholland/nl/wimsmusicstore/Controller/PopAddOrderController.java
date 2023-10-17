@@ -62,7 +62,7 @@ public class PopAddOrderController implements Initializable {
         //Reducing stock of product by - the quantity
         selectedProduct.reduceStock(quantity);
         //Calculating and setting the final price for the new order
-        selectedProduct.setFinalPrice(newProduct.getPrice() * quantity);
+        selectedProduct.getFinalPrice();
         //Passes this new product to its base product
         listener.onProductSelected(newProduct);
         Stage currentStage = (Stage) addOrder.getScene().getWindow();
