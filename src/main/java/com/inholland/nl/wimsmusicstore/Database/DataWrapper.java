@@ -7,7 +7,7 @@ import com.inholland.nl.wimsmusicstore.Model.User;
 import java.io.Serializable;
 import java.util.List;
 
-public class DataWrapper  implements Serializable {
+public class DataWrapper implements Serializable {
     List<User> users;
     List<Product> products;
     List<Order> orders;

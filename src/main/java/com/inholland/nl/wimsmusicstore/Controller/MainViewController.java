@@ -12,27 +12,36 @@ import java.io.IOException;
 import static java.lang.System.out;
 
 public class MainViewController {
-    @FXML private VBox newViewContainter;
-    @FXML private Button dashboardButton;
-    @FXML private Button orderHistoryButton;
-    @FXML private Button productInventoryButton;
-    @FXML private Button createOrderButton;
+    @FXML
+    private VBox newViewContainter;
+    @FXML
+    private Button dashboardButton;
+    @FXML
+    private Button orderHistoryButton;
+    @FXML
+    private Button productInventoryButton;
+    @FXML
+    private Button createOrderButton;
     private Database database;
     private User user;
+
     //Makes sure that when form loads the dashboard views loads first
     public void initialize() {
         loadDefaultView();
     }
+
     //Sets user instance of user
     public void setUser(User user) {
         this.user = user;
         allowAccessDependingOnRole();
         loadDefaultView();
     }
+
     //Sets database instance of database
     public void setDatabase(Database database) {
         this.database = database;
     }
+
     //This method checks the usertype of the logged-in user and depending on its role it disables or enables buttons of which they are allowed or not allowed to access
     private void allowAccessDependingOnRole() {
         switch (user.getUserType()) {
@@ -52,23 +61,29 @@ public class MainViewController {
                 break;
         }
     }
+
     //This method makes sure that dashboard is automatically opens when mainview loads
     private void loadDefaultView() {
         navigateToDashboard();
     }
+
     //Sets fxml path for the corresponding views
     public void navigateToDashboard() {
         loadView("/com/inholland/nl/wimsmusicstore/DashboardView.fxml");
     }
+
     public void navigateToCreateOrder() {
         loadView("/com/inholland/nl/wimsmusicstore/CreateOrderView.fxml");
     }
+
     public void navigateToProductInventory() {
         loadView("/com/inholland/nl/wimsmusicstore/ProductInventoryView.fxml");
     }
+
     public void navigateToOrderHistory() {
         loadView("/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml");
     }
+
     //This method checks if the controller of the fxmlpath provided is of a specific instance. If it is it then passes an instance of database or of user if needed
     private void loadView(String fxmlPath) {
         try {
@@ -89,7 +104,7 @@ public class MainViewController {
             }
 
             newViewContainter.getChildren().setAll(navigationView);
-        }catch (IOException e) {
+        } catch (IOException e) {
             out.println("Unable to find view");
             e.printStackTrace();
         }

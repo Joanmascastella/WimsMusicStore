@@ -17,21 +17,28 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginController {
-    @FXML private Button loginButton;
-    @FXML private PasswordField passwordField;
-    @FXML private Label feedbackLabel;
-    @FXML private TextField userNameField;
+    @FXML
+    private Button loginButton;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private Label feedbackLabel;
+    @FXML
+    private TextField userNameField;
     private Database database;
     private User user;
+
     //Sets Instance of database
     public void setDatabase(Database database) {
         this.database = database;
     }
+
     //Disables or enables the login button depending on if the entered password is valid or not. This is checked by calling the isPasswordValid method
     @FXML
     public void onPasswordTextChange(StringProperty observable, String oldValue, String newValue) {
         loginButton.setDisable(!isPasswordValid(newValue));
     }
+
     //Simply checks if user login was successful and if it is a user is not null then it loads the new view, if not feed back message is show to the user
     @FXML
     public void onLoginButtonClick(ActionEvent actionEvent) {
@@ -42,12 +49,14 @@ public class LoginController {
             feedbackLabel.setText("Invalid Username or Password");
         }
     }
+
     //This is the main logic for the login. Ite gets the text from the fields and passes this text to the method in database which validates the data and returns its corresponding user.
-    public void userLogin(){
+    public void userLogin() {
         String username = userNameField.getText();
         String password = passwordField.getText();
         user = database.getUser(username, password);
     }
+
     //This method is validating password making sure field is not empty, is longer than 7 char, has at least one digit and at least one special character
     protected boolean isPasswordValid(String password) {
         var hasLetters = false;
@@ -65,6 +74,7 @@ public class LoginController {
         }
         return password.length() > 7 && (hasLetters && hasDigits && hasSpecial);
     }
+
     //This method loads the mainview when login is successful
     public void loadScene() {
         try {

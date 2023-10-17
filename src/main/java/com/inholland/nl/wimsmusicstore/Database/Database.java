@@ -1,4 +1,5 @@
 package com.inholland.nl.wimsmusicstore.Database;
+
 import com.inholland.nl.wimsmusicstore.Model.Order;
 import com.inholland.nl.wimsmusicstore.Model.Product;
 import com.inholland.nl.wimsmusicstore.Model.User;
@@ -15,7 +16,7 @@ public class Database {
     private DataWrapper databaseData;
 
     //Creating default users
-    public Database(){
+    public Database() {
         users = new ArrayList<>();
         users.addAll(
                 List.of(
@@ -29,8 +30,8 @@ public class Database {
 
     //Validating login
     public User getUser(String username, String password) {
-        for(User user : users) {
-            if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+        for (User user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
             }
         }
@@ -46,6 +47,7 @@ public class Database {
         products.add(product);
         saveDatabaseToFile();
     }
+
     //This method removes products to the existing product list and saves them
     public void removeProduct(Product product) {
         products.remove(product);
@@ -57,12 +59,13 @@ public class Database {
     }
 
     //This method creates a new order and saves it to the order list
-    public void addOrder(Order order){
+    public void addOrder(Order order) {
         orders.add(order);
         saveDatabaseToFile();
     }
+
     //This method removes products from an order and saves to list
-    public void removeProductFromOrder(Order order){
+    public void removeProductFromOrder(Order order) {
         orders.remove(order);
         saveDatabaseToFile();
     }

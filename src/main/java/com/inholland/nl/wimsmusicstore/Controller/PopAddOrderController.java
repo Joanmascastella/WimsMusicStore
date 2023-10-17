@@ -15,32 +15,42 @@ import java.util.ResourceBundle;
 
 public class PopAddOrderController implements Initializable {
     private ObservableList<Product> products;
-    @FXML private TableView productTableView;
-    @FXML private Button addOrder;
-    @FXML private Button Cancel;
-    @FXML private TextField quantityInput;
-    @FXML private Label message;
+    @FXML
+    private TableView productTableView;
+    @FXML
+    private Button addOrder;
+    @FXML
+    private Button Cancel;
+    @FXML
+    private TextField quantityInput;
+    @FXML
+    private Label message;
     private Database database;
     private ProductSelectedListener listener;
+
     //Sets database instance
     public void setDatabase(Database database) {
         this.database = database;
         loadData();
     }
+
     //Allows selection of items
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
+
     //Loads data to tableview
     public void loadData() {
         products = FXCollections.observableArrayList(database.getProducts());
         productTableView.setItems(products);
     }
+
     //Initializing the product listener. This allows the selected products to be passed to its base controllers
     public void setOnProductSelected(ProductSelectedListener listener) {
         this.listener = listener;
     }
+
     //This method gets the selected product and passes it on to its base controller
     public void addOrder() {
         //Gets selected product from tableview

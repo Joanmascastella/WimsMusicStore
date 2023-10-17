@@ -30,23 +30,36 @@ import static java.lang.System.*;
 public class CreateOrderController implements Initializable {
     private LocalDateTime dateTime;
     private List<Product> selectedProducts = new ArrayList<>();
-    @FXML private TextField firstNameTextField;
-    @FXML private TextField lastNameTextField;
-    @FXML private TextField emailTextField;
-    @FXML private TextField phoneNumberTextField;
-    @FXML private TableView<Product> productTableView;
-    @FXML private TableColumn<Product, Integer> quantityRow;
-    @FXML private TableColumn<Product, Double> priceRow;
-    @FXML private Button addOrderButton;
-    @FXML private Button deleteOrderButton;
-    @FXML private Button createOrderButton;
-    @FXML private Label message;
+    @FXML
+    private TextField firstNameTextField;
+    @FXML
+    private TextField lastNameTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField phoneNumberTextField;
+    @FXML
+    private TableView<Product> productTableView;
+    @FXML
+    private TableColumn<Product, Integer> quantityRow;
+    @FXML
+    private TableColumn<Product, Double> priceRow;
+    @FXML
+    private Button addOrderButton;
+    @FXML
+    private Button deleteOrderButton;
+    @FXML
+    private Button createOrderButton;
+    @FXML
+    private Label message;
     private ProductSelectedListener listener;
     private Database database;
+
     //Sets database instance
     public void setDatabase(Database database) {
         this.database = database;
     }
+
     //This method sets data to table view
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,10 +72,12 @@ public class CreateOrderController implements Initializable {
             }
         });
     }
+
     //initializing product listner
     public void setOnProductSelected(ProductSelectedListener listener) {
         this.listener = listener;
     }
+
     //Loads add product popup
     public void addOrderButton() {
         try {
@@ -86,11 +101,13 @@ public class CreateOrderController implements Initializable {
             e.printStackTrace();
         }
     }
+
     //Refreshes the tableview
     public void updateTableView() {
         ObservableList<Product> observableProducts = FXCollections.observableArrayList(selectedProducts);
         productTableView.setItems(observableProducts);
     }
+
     //This method deletes product item from order
     public void deletOrderButton() {
         //Removes product from order that has been selected
@@ -107,6 +124,7 @@ public class CreateOrderController implements Initializable {
         productTableView.getSelectionModel().clearSelection();
         message.setText("Product(s) removed successfully!");
     }
+
     //This method creates orders
     public void createOrderButton() {
         //Parse the string input to string
@@ -125,6 +143,7 @@ public class CreateOrderController implements Initializable {
         message.setText("Created Order");
         clearFields();
     }
+
     //Clears fields
     public void clearFields() {
         firstNameTextField.clear();

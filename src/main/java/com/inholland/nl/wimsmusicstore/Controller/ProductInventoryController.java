@@ -17,16 +17,26 @@ import static java.lang.System.*;
 public class ProductInventoryController implements Initializable {
     private ObservableList<Product> products;
     private Database database;
-    @FXML private Button editProduct;
-    @FXML private TableView productTableView;
-    @FXML private TextField stock;
-    @FXML private TextField productName;
-    @FXML private TextField category;
-    @FXML private TextField price;
-    @FXML private TextField description;
-    @FXML private Button addProduct;
-    @FXML private Button delete;
-    @FXML private Label message;
+    @FXML
+    private Button editProduct;
+    @FXML
+    private TableView productTableView;
+    @FXML
+    private TextField stock;
+    @FXML
+    private TextField productName;
+    @FXML
+    private TextField category;
+    @FXML
+    private TextField price;
+    @FXML
+    private TextField description;
+    @FXML
+    private Button addProduct;
+    @FXML
+    private Button delete;
+    @FXML
+    private Label message;
     private Product selectedProductForEdit;
 
     //Setting a database instance
@@ -34,16 +44,19 @@ public class ProductInventoryController implements Initializable {
         this.database = database;
         loadData();
     }
+
     //In this method I am making sure items can be selected
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
+
     //This method loads data from product list and displays those items to the table view
     public void loadData() {
         products = FXCollections.observableArrayList(database.getProducts());
         productTableView.setItems(products);
     }
+
     //Creates and adds a new product
     public void onAddProductButtonClick() {
         try {
@@ -67,6 +80,7 @@ public class ProductInventoryController implements Initializable {
             err.println(e.getMessage());
         }
     }
+
     //Edits product and sends the updated product to the list
     public void onEditProductButtonClick() {
         if (selectedProductForEdit == null) {
@@ -75,6 +89,7 @@ public class ProductInventoryController implements Initializable {
             updateProduct();
         }
     }
+
     //This method makes sure that the data of a selected product is loaded to the prompt text of the text fields
     private void setPromptText() {
         //This gets the selectedProduct and sets its values to the prompt text of the textFields
@@ -93,6 +108,7 @@ public class ProductInventoryController implements Initializable {
             err.println(e.getMessage());
         }
     }
+
     //Updates data of product when being edited
     private void updateProduct() {
         try {
@@ -117,6 +133,7 @@ public class ProductInventoryController implements Initializable {
             err.println(e.getMessage());
         }
     }
+
     //This method sets int and double values of the new edited products
     private Product getProduct(int stockValue, double priceValue) {
         String updatedProductName = productName.getText().isEmpty() ? selectedProductForEdit.getProductName() : productName.getText();
@@ -125,6 +142,7 @@ public class ProductInventoryController implements Initializable {
         // Creating the updated product
         return new Product(stockValue, updatedProductName, updatedCategory, priceValue, updatedDescription);
     }
+
     //This method deletes selected product form the list in database
     public void onDeleteButtonClick() {
         try {
@@ -141,8 +159,9 @@ public class ProductInventoryController implements Initializable {
             err.println(e.getMessage());
         }
     }
+
     //This method clears all text fields
-    public void clearFields(){
+    public void clearFields() {
         stock.clear();
         productName.clear();
         category.clear();

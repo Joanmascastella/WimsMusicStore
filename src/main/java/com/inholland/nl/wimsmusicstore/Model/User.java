@@ -24,13 +24,14 @@ public class User implements Serializable {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
+
     //Constructor used to create customers when placing an order
-    public User(String firstName, String lastName, String email, int phoneNumber){
+    public User(String firstName, String lastName, String email, int phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
- }
+    }
 
     public String getUsername() {
         return username;
@@ -47,18 +48,23 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public UserType getUserType() {
         return userType;
     }
+
     public String getEmail() {
         return email;
     }
+
     public int getPhoneNumber() {
         return phoneNumber;
     }

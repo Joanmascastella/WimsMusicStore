@@ -16,6 +16,7 @@ public class Order implements Serializable {
         this.user = user;
         this.products = products;
     }
+
     //Constructor used to make an order
     public Order(LocalDateTime orderDate, User user, List<Product> products) {
         this.orderDate = orderDate;
