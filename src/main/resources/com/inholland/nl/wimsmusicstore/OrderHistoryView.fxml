@@ -19,9 +19,6 @@
     <TableView fx:id="orderView">
         <columns>
             <TableColumn fx:id="dateTimeRow" prefWidth="99.80002343654633" text="Date/Time">
-                <cellValueFactory>
-                    <PropertyValueFactory property="orderDate" />
-                </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="userNameRow" prefWidth="300.1999740600586" text="Name">
                 <cellValueFactory>
@@ -29,9 +26,6 @@
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="totalPriceRow" prefWidth="211.80001831054688" text="Total Price">
-                <cellValueFactory>
-                    <PropertyValueFactory property="finalPrice" />
-                </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>

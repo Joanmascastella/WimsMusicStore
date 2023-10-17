@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -28,7 +29,6 @@ import java.util.ResourceBundle;
 import static java.lang.System.*;
 
 public class CreateOrderController implements Initializable {
-    private LocalDateTime dateTime;
     private List<Product> selectedProducts = new ArrayList<>();
     @FXML
     private TextField firstNameTextField;
@@ -136,8 +136,11 @@ public class CreateOrderController implements Initializable {
                 emailTextField.getText(),
                 phoneNumber
         );
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
         //Creates new order utilizing the second constructor
-        Order order = new Order(dateTime, user, selectedProducts);
+        Order order = new Order(formattedDateTime, user, selectedProducts);
         //Adds new order to list
         database.addOrder(order);
         message.setText("Created Order");

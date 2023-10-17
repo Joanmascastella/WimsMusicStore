@@ -9,16 +9,10 @@ public class Order implements Serializable {
     private User user;
     private Product product;
     private List<Product> products;
-    private LocalDateTime orderDate;
+    private String orderDate;
 
     //Constructor used to make an order
-    public Order(User user, List<Product> products) {
-        this.user = user;
-        this.products = products;
-    }
-
-    //Constructor used to make an order
-    public Order(LocalDateTime orderDate, User user, List<Product> products) {
+    public Order(String orderDate, User user, List<Product> products) {
         this.orderDate = orderDate;
         this.user = user;
         this.products = products;
@@ -40,11 +34,11 @@ public class Order implements Serializable {
         this.product = product;
     }
 
-    public LocalDateTime getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 
