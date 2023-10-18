@@ -9,6 +9,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.out;
+
 public class Database {
     private final List<User> users;
     private List<Product> products = new ArrayList<>();
@@ -36,21 +38,7 @@ public class Database {
         return null;
     }
 
-<<<<<<< HEAD
-// In Database.java
 
-    public Product findProductByName(String productName) {
-        for (Product p : products) {
-            if (p.getProductName().equals(productName)) {
-                return p;
-            }
-        }
-        return null;
-    }
-
-
-=======
->>>>>>> parent of dcead0e (stock and quantity being done correctly)
     public List<Product> getProducts() {
         return products;
     }
@@ -89,7 +77,7 @@ public class Database {
 
     public void loadDatabaseFromFile() {
         File file = new File("database.dat");
-<<<<<<< HEAD
+
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             databaseData = (DataWrapper) ois.readObject();
             users.clear();
@@ -100,22 +88,7 @@ public class Database {
             orders.addAll(databaseData.orders);
         } catch (IOException | ClassNotFoundException e) {
             out.println("Error loading data to file");
-=======
-        if (file.exists()) {
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-                databaseData = (DataWrapper) ois.readObject();
-                users.clear();
-                products.clear();
-                orders.clear();
-                users.addAll(databaseData.users);
-                products.addAll(databaseData.products);
-                orders.addAll(databaseData.orders);
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
->>>>>>> parent of dcead0e (stock and quantity being done correctly)
+
         }
-
     }
-
 }
