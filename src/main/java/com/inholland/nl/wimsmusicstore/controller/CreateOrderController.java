@@ -151,7 +151,7 @@ public class CreateOrderController implements Initializable {
 
     private boolean validateFields(String firstName, String lastName) {
         InputValidator validator = new InputValidator();
-        if (!validator.isOnlyLetters(firstName) || !validator.isOnlyLetters(lastName)) {
+        if (validator.isOnlyLetters(firstName) || validator.isOnlyLetters(lastName)) {
             message.setText("First name and last name should contain only characters.");
             return false;
         }
