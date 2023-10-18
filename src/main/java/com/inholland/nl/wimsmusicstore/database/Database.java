@@ -26,7 +26,6 @@ public class Database {
                         new User("Manager", "Manager123@", "John", "Micheal", "john.micheal@email.com", 987654210, UserType.manager)
                 )
         );
-
         loadDatabaseFromFile();
     }
 
@@ -49,7 +48,6 @@ public class Database {
         }
         return null;
     }
-
 
 
     public List<Product> getProducts() {
@@ -90,18 +88,18 @@ public class Database {
 
     public void loadDatabaseFromFile() {
         File file = new File("database.dat");
-        if (file.exists()) {
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-                databaseData = (DataWrapper) ois.readObject();
-                users.clear();
-                products.clear();
-                orders.clear();
-                users.addAll(databaseData.users);
-                products.addAll(databaseData.products);
-                orders.addAll(databaseData.orders);
-            } catch (IOException | ClassNotFoundException e) {
-                out.println("Error loading data to file");
-            }
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+            databaseData = (DataWrapper) ois.readObject();
+            users.clear();
+            products.clear();
+            orders.clear();
+            users.addAll(databaseData.users);
+            products.addAll(databaseData.products);
+            orders.addAll(databaseData.orders);
+        } catch (IOException | ClassNotFoundException e) {
+            out.println("Error loading data to file");
         }
+
     }
+
 }

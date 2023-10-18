@@ -19,7 +19,7 @@ public class InputValidator {
         return password.length() > 7 && (hasLetters && hasDigits && hasSpecial);
     }
 
-    public boolean containsOnlyCharacters(String input) {
+    public boolean isOnlyLetters(String input) {
         for (char c : input.toCharArray()) {
             if (!Character.isLetter(c)) {
                 return false;
@@ -27,6 +27,7 @@ public class InputValidator {
         }
         return true;
     }
+
 
     public boolean isPositiveNumber(String input) {
         if (input == null || input.isEmpty() || input.charAt(0) == '0') {

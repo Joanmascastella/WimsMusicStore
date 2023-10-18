@@ -10,7 +10,7 @@ public class User implements Serializable {
     private String password;
     private final String firstName;
     private final String lastName;
-    private UserType userType;
+    private final UserType userType;
     private final String email;
     private final int phoneNumber;
 
@@ -25,10 +25,7 @@ public class User implements Serializable {
     }
 
     public User(String firstName, String lastName, String email, int phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+        this(null, null, firstName, lastName, email, phoneNumber, null);
     }
 
     public String getUsername() {

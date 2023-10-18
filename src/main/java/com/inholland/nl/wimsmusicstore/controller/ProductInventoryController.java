@@ -152,9 +152,9 @@ public class ProductInventoryController implements Initializable {
 
     private boolean validateFields(String productNameText, String categoryText, String descriptionText) {
         try {
-            if (inputValidator.containsOnlyCharacters(productNameText) ||
-                    inputValidator.containsOnlyCharacters(categoryText) ||
-                    inputValidator.containsOnlyCharacters(descriptionText)) {
+            if (inputValidator.isOnlyLetters(productNameText) ||
+                    inputValidator.isOnlyLetters(categoryText) ||
+                    inputValidator.isOnlyLetters(descriptionText)) {
                 message.setText("Product Name, Category, and Description must contain only letters.");
                 return true;
             }

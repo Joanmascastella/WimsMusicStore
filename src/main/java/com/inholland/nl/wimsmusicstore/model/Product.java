@@ -20,9 +20,8 @@ public class Product implements Serializable {
     }
 
     public Product(int quantity, String productName, String category, double finalPrice) {
+        this(0, productName, category, 0, null);
         this.quantity = quantity;
-        this.productName = productName;
-        this.category = category;
         this.finalPrice = finalPrice;
     }
     public double getFinalPrice() {

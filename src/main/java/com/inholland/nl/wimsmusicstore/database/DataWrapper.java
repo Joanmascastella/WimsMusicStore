@@ -8,9 +8,9 @@ import java.io.Serializable;
 import java.util.List;
 
 public class DataWrapper implements Serializable {
-    List<User> users;
-    List<Product> products;
-    List<Order> orders;
+    public List<User> users;
+    public List<Product> products;
+    public List<Order> orders;
 
     public DataWrapper(List<User> users, List<Product> products, List<Order> orders) {
         this.users = users;
