@@ -63,7 +63,7 @@ public class PopAddOrderController implements Initializable {
         try {
             int quantity = Integer.parseInt(quantityInput.getText());
             if (quantity < 1) {
-                message.setText("Quantity must be a positive integer.");
+                message.setText("Quantity must be a positive amount.");
                 return;
             }
             Product selectedProduct = productTableView.getSelectionModel().getSelectedItem();
@@ -71,17 +71,21 @@ public class PopAddOrderController implements Initializable {
                 message.setText("Please select a product.");
                 return;
             }
+            if (selectedProduct.getStock() < quantity) {
+                message.setText("Not enough stock for this product.");
+                return;
+            }
             Product newProduct = new Product(quantity, selectedProduct.getProductName(), selectedProduct.getCategory(), selectedProduct.getPrice());
-            selectedProduct.reduceStock(quantity);
             listener.onProductSelected(newProduct);
             Stage currentStage = (Stage) addOrder.getScene().getWindow();
             currentStage.close();
         } catch (NumberFormatException e) {
-            message.setText("Invalid input. Please enter a valid integer.");
+            message.setText("Please enter a valid integer.");
         } catch (Exception e) {
             message.setText("An error occurred while adding the order.");
         }
     }
+
 
     public void cancel() {
         try {

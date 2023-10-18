@@ -105,21 +105,26 @@ public class CreateOrderController implements Initializable {
         String firstName = firstNameTextField.getText();
         String lastName = lastNameTextField.getText();
         String email = emailTextField.getText();
-
         if (!validateFields(firstName, lastName)) {
             return;
         }
-
         try {
             int phoneNumber = Integer.parseInt(phoneNumberTextField.getText());
             User user = new User(firstName, lastName, email, phoneNumber);
             LocalDateTime now = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String formattedDateTime = now.format(formatter);
-            Order order = new Order(formattedDateTime, user, selectedProducts);
+
+            if (!reduceProductsStock()) {
+                return;
+            }
+
+            Order order = new Order(formattedDateTime, user, new ArrayList<>(selectedProducts));
             database.addOrder(order);
+
             message.setText("Created Order");
             clearFields();
+            productTableView.setItems(FXCollections.observableArrayList());
         } catch (NumberFormatException e) {
             message.setText("Invalid phone number.");
         } catch (Exception e) {
@@ -127,23 +132,51 @@ public class CreateOrderController implements Initializable {
         }
     }
 
-    private boolean validateFields(String firstName, String lastName) {
-        InputValidator validator = new InputValidator();
-
-        if (!validator.containsOnlyCharacters(firstName) || !validator.containsOnlyCharacters(lastName)) {
-            message.setText("First name and last name should contain only characters.");
-            return false;
+    private boolean reduceProductsStock() {
+        for (Product product : selectedProducts) {
+            Product originalProduct = findProductByName(product.getProductName());
+            if (originalProduct == null) {
+                message.setText("Product not found: " + product.getProductName());
+                return false;
+            }
+            if (originalProduct.getStock() < product.getQuantity()) {
+                message.setText("Not enough stock for product: " + product.getProductName());
+                return false;
+            }
         }
 
-        if (!validator.isPositiveNumber(phoneNumberTextField.getText())) {
-            message.setText("Please enter a valid positive phone number.");
-            return false;
+        for (Product p : selectedProducts) {
+            Product originalProduct = findProductByName(p.getProductName());
+            if (originalProduct != null) {
+                originalProduct.reduceStock(p.getQuantity());
+            }
         }
 
         return true;
     }
 
+    private Product findProductByName(String productName) {
+        for (Product p : database.getProducts()) {
+            if (p.getProductName().equals(productName)) {
+                return p;
+            }
+        }
+        return null;
+    }
 
+
+    private boolean validateFields(String firstName, String lastName) {
+        InputValidator validator = new InputValidator();
+        if (!validator.containsOnlyCharacters(firstName) || !validator.containsOnlyCharacters(lastName)) {
+            message.setText("First name and last name should contain only characters.");
+            return false;
+        }
+        if (!validator.isPositiveNumber(phoneNumberTextField.getText())) {
+            message.setText("Please enter a valid positive phone number.");
+            return false;
+        }
+        return true;
+    }
 
     public void clearFields() {
         firstNameTextField.clear();
