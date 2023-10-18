@@ -1,9 +1,9 @@
-package com.inholland.nl.wimsmusicstore.Controller;
+package com.inholland.nl.wimsmusicstore.controller;
 
-import com.inholland.nl.wimsmusicstore.Database.Database;
-import com.inholland.nl.wimsmusicstore.Model.Order;
-import com.inholland.nl.wimsmusicstore.Model.Product;
-import com.inholland.nl.wimsmusicstore.Model.User;
+import com.inholland.nl.wimsmusicstore.database.Database;
+import com.inholland.nl.wimsmusicstore.model.Order;
+import com.inholland.nl.wimsmusicstore.model.Product;
+import com.inholland.nl.wimsmusicstore.model.User;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;

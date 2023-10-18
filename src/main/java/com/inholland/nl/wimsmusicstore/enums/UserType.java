@@ -1,4 +1,4 @@
-package com.inholland.nl.wimsmusicstore.Enum;
+package com.inholland.nl.wimsmusicstore.enums;
 
 public enum UserType {
     sales,

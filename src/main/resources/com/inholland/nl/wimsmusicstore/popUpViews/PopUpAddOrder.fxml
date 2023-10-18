@@ -11,7 +11,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.inholland.nl.wimsmusicstore.Controller.PopAddOrderController"
+      fx:controller="com.inholland.nl.wimsmusicstore.controller.PopAddOrderController"
       prefHeight="359.0" prefWidth="600.0" spacing="10">
     <padding>
         <Insets topRightBottomLeft="10" />

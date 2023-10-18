@@ -1,4 +1,4 @@
-package com.inholland.nl.wimsmusicstore.Model;
+package com.inholland.nl.wimsmusicstore.model;
 
 import java.io.Serializable;
 import java.util.List;

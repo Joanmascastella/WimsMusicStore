@@ -7,7 +7,7 @@
 
 <SplitPane dividerPositions="0.4215720831864645" prefHeight="488.0" prefWidth="369.0"
            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.inholland.nl.wimsmusicstore.Controller.LoginController">
+           fx:controller="com.inholland.nl.wimsmusicstore.controller.LoginController">
   <Pane style="-fx-background-color: #0D254C;">
     <Label layoutX="24.0" layoutY="36.0" text="Wim's Music" textFill="WHITE">
       <font>

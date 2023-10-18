@@ -1,8 +1,8 @@
-package com.inholland.nl.wimsmusicstore.Database;
+package com.inholland.nl.wimsmusicstore.database;
 
-import com.inholland.nl.wimsmusicstore.Model.Order;
-import com.inholland.nl.wimsmusicstore.Model.Product;
-import com.inholland.nl.wimsmusicstore.Model.User;
+import com.inholland.nl.wimsmusicstore.model.Order;
+import com.inholland.nl.wimsmusicstore.model.Product;
+import com.inholland.nl.wimsmusicstore.model.User;
 
 import java.io.Serializable;
 import java.util.List;

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="600.0" prefWidth="650" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.ProductInventoryController">
+<VBox prefHeight="600.0" prefWidth="650" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.controller.ProductInventoryController">
 
     <padding>
         <Insets topRightBottomLeft="10" />

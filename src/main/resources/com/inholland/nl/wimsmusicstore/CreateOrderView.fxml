@@ -6,7 +6,7 @@
 
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.geometry.Insets?>
-<VBox prefHeight="600.0" prefWidth="650" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.CreateOrderController">
+<VBox prefHeight="600.0" prefWidth="650" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.controller.CreateOrderController">
   <padding>
     <Insets topRightBottomLeft="10" />
   </padding>

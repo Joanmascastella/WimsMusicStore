@@ -1,7 +1,7 @@
-package com.inholland.nl.wimsmusicstore.Controller;
+package com.inholland.nl.wimsmusicstore.controller;
 
-import com.inholland.nl.wimsmusicstore.Database.Database;
-import com.inholland.nl.wimsmusicstore.Model.Product;
+import com.inholland.nl.wimsmusicstore.database.Database;
+import com.inholland.nl.wimsmusicstore.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

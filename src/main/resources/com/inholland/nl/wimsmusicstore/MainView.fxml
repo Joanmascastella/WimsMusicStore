@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.Controller.MainViewController">
+<HBox prefHeight="536.0" prefWidth="857.0" spacing="10" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inholland.nl.wimsmusicstore.controller.MainViewController">
 
     <!-- NavigationView -->
     <VBox prefHeight="536.0" prefWidth="181.0" spacing="10" style="-fx-padding: 20px; -fx-background-color: #420400;">

@@ -1,7 +1,7 @@
-package com.inholland.nl.wimsmusicstore.Controller;
+package com.inholland.nl.wimsmusicstore.controller;
 
-import com.inholland.nl.wimsmusicstore.Database.Database;
-import com.inholland.nl.wimsmusicstore.Model.User;
+import com.inholland.nl.wimsmusicstore.database.Database;
+import com.inholland.nl.wimsmusicstore.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;

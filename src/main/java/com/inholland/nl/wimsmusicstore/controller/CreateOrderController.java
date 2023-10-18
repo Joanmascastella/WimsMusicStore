@@ -1,9 +1,9 @@
-package com.inholland.nl.wimsmusicstore.Controller;
+package com.inholland.nl.wimsmusicstore.controller;
 
-import com.inholland.nl.wimsmusicstore.Database.Database;
-import com.inholland.nl.wimsmusicstore.Model.Order;
-import com.inholland.nl.wimsmusicstore.Model.Product;
-import com.inholland.nl.wimsmusicstore.Model.User;
+import com.inholland.nl.wimsmusicstore.database.Database;
+import com.inholland.nl.wimsmusicstore.model.Order;
+import com.inholland.nl.wimsmusicstore.model.Product;
+import com.inholland.nl.wimsmusicstore.model.User;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
@@ -68,7 +68,7 @@ public class CreateOrderController implements Initializable {
 
     public void addOrderButton() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/inholland/nl/wimsmusicstore/PopUpViews/PopUpAddOrder.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/inholland/nl/wimsmusicstore/popUpViews/PopUpAddOrder.fxml"));
             Parent root = loader.load();
             PopAddOrderController popController = loader.getController();
             popController.setDatabase(database);

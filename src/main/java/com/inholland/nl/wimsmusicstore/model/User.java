@@ -1,6 +1,6 @@
-package com.inholland.nl.wimsmusicstore.Model;
+package com.inholland.nl.wimsmusicstore.model;
 
-import com.inholland.nl.wimsmusicstore.Enum.UserType;
+import com.inholland.nl.wimsmusicstore.enums.UserType;
 
 import java.io.Serializable;
 
