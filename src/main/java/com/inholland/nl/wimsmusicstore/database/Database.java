@@ -13,8 +13,6 @@ import static java.lang.System.*;
 
 public class Database {
     private final List<User> users;
-    private final List<Product> products = new ArrayList<>();
-    private final List<Order> orders = new ArrayList<>();
     private DataWrapper databaseData;
 
 
@@ -81,7 +79,6 @@ public class Database {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("database.dat"))) {
             oos.writeObject(databaseData);
         } catch (IOException e) {
-            out.println("Error saving data to file");
         }
     }
 
