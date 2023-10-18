@@ -12,7 +12,7 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static java.lang.System.*;
+
 
 public class ProductInventoryController implements Initializable {
     private ObservableList<Product> products;
@@ -102,7 +102,6 @@ public class ProductInventoryController implements Initializable {
             }
         } catch (Exception e) {
             message.setText("Please select a product to edit.");
-            err.println(e.getMessage());
         }
     }
 
@@ -119,7 +118,6 @@ public class ProductInventoryController implements Initializable {
             }
         } catch (Exception e) {
             message.setText("Error setting product details.");
-            err.println(e.getMessage());
         }
     }
 
@@ -146,7 +144,6 @@ public class ProductInventoryController implements Initializable {
             message.setText("Error converting stock or price values. Please enter valid numbers.");
         } catch (Exception e) {
             message.setText("Error updating product.");
-            err.println(e.getMessage());
         }
     }
 
@@ -174,7 +171,6 @@ public class ProductInventoryController implements Initializable {
             message.setText("Product(s) have been deleted successfully.");
         } catch (Exception e) {
             message.setText("Error deleting product(s).");
-            err.println(e.getMessage());
         }
     }
 
@@ -187,7 +183,6 @@ public class ProductInventoryController implements Initializable {
             description.clear();
         } catch (Exception e) {
             message.setText("Error clearing fields.");
-            err.println(e.getMessage());
         }
     }
 
@@ -200,7 +195,6 @@ public class ProductInventoryController implements Initializable {
             description.setPromptText("Description");
         } catch (Exception e) {
             message.setText("Error resetting prompt text.");
-            err.println(e.getMessage());
         }
     }
 }

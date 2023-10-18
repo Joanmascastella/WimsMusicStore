@@ -9,7 +9,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.out;
 
 public class Database {
     private final List<User> users;
@@ -87,7 +86,7 @@ public class Database {
             products.addAll(databaseData.products);
             orders.addAll(databaseData.orders);
         } catch (IOException | ClassNotFoundException e) {
-            out.println("Error loading data to file");
+            System.out.println("Error loading data to file");
 
         }
     }
