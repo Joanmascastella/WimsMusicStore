@@ -39,7 +39,6 @@ public class CreateOrderController implements Initializable {
     private TableColumn<Product, Integer> quantityRow;
     @FXML
     private TableColumn<Product, Double> priceRow;
-
     @FXML
     private Button addOrderButton;
     @FXML
@@ -135,6 +134,7 @@ public class CreateOrderController implements Initializable {
 
     private boolean reduceProductsStock() {
         for (Product product : selectedProducts) {
+            Product originalProduct = findProductByName(product.getProductName());
             if (originalProduct == null) {
                 message.setText("Product not found: " + product.getProductName());
                 return false;
@@ -145,11 +145,25 @@ public class CreateOrderController implements Initializable {
             }
         }
 
+        for (Product p : selectedProducts) {
+            Product originalProduct = findProductByName(p.getProductName());
             if (originalProduct != null) {
+                originalProduct.reduceStock(p.getQuantity());
             }
         }
+
         return true;
     }
+
+    private Product findProductByName(String productName) {
+        for (Product p : database.getProducts()) {
+            if (p.getProductName().equals(productName)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
 
     private boolean validateFields(String firstName, String lastName) {
         InputValidator validator = new InputValidator();
