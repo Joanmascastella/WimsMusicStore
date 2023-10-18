@@ -9,12 +9,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.*;
-
 public class Database {
     private final List<User> users;
-    private final List<Product> products = new ArrayList<>();
-    private final List<Order> orders = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
     private DataWrapper databaseData;
 
 
@@ -38,6 +36,7 @@ public class Database {
         return null;
     }
 
+<<<<<<< HEAD
 // In Database.java
 
     public Product findProductByName(String productName) {
@@ -50,6 +49,8 @@ public class Database {
     }
 
 
+=======
+>>>>>>> parent of dcead0e (stock and quantity being done correctly)
     public List<Product> getProducts() {
         return products;
     }
@@ -81,13 +82,14 @@ public class Database {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("database.dat"))) {
             oos.writeObject(databaseData);
         } catch (IOException e) {
-            out.println("Error saving data to file");
+            e.printStackTrace();
         }
     }
 
 
     public void loadDatabaseFromFile() {
         File file = new File("database.dat");
+<<<<<<< HEAD
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
             databaseData = (DataWrapper) ois.readObject();
             users.clear();
@@ -98,6 +100,20 @@ public class Database {
             orders.addAll(databaseData.orders);
         } catch (IOException | ClassNotFoundException e) {
             out.println("Error loading data to file");
+=======
+        if (file.exists()) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+                databaseData = (DataWrapper) ois.readObject();
+                users.clear();
+                products.clear();
+                orders.clear();
+                users.addAll(databaseData.users);
+                products.addAll(databaseData.products);
+                orders.addAll(databaseData.orders);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+>>>>>>> parent of dcead0e (stock and quantity being done correctly)
         }
 
     }
