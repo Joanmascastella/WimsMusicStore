@@ -1,13 +1,9 @@
 
-K
-java:S3740"/Provide the parametrized type for this generic.(¿’å28³Üï¡³1
-L
-java:S3740"/Provide the parametrized type for this generic.(ÕÏòô8³Üï¡³1
-£
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•‘İŸüÿÿÿÿ8¾Üï¡³1
-
-java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(µÜ¸ğ8¿Üï¡³1
-y
-java:S1450"WRemove the "database" field and declare it as a local variable in the relevant methods.(áæß”üÿÿÿÿ8¿Üï¡³1
-N
-java:S1068",Remove this unused "database" private field.(áæß”üÿÿÿÿ8ÃÜï¡³1
+r
+java:S1450"URemove the "orders" field and declare it as a local variable in the relevant methods.(®½Â´8´¿şï³1
+e
+java:S1128"HRemove this unused import 'javafx.beans.property.SimpleIntegerProperty'.(©Ú¡8‡ğ³1
+d
+java:S1128	"GRemove this unused import 'javafx.beans.property.SimpleObjectProperty'.(¶Ö­¤8‡ğ³1
+V
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8‡ğ³1
