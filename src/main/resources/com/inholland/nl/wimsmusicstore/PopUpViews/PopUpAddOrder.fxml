@@ -58,7 +58,7 @@
 
     <HBox spacing="10">
         <Button fx:id="addOrder" mnemonicParsing="false" text="Add Order" onAction="#addOrder"/>
-        <Button fx:id="Cancel" mnemonicParsing="false" text="Cancel" onAction="#cancel" />
+        <Button fx:id="cancel" mnemonicParsing="false" text="Cancel" onAction="#cancel" />
     </HBox>
     <Label fx:id="message"/>
 </VBox>
