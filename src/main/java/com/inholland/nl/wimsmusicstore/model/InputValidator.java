@@ -27,4 +27,19 @@ public class InputValidator {
         }
         return true;
     }
+
+    public boolean isPositiveNumber(String input) {
+        if (input == null || input.isEmpty() || input.charAt(0) == '0') {
+            return false;
+        }
+
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 }

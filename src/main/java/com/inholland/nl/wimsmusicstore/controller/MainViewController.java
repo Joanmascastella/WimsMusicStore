@@ -5,13 +5,13 @@ import com.inholland.nl.wimsmusicstore.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-import static java.lang.System.out;
-
 public class MainViewController {
+    @FXML private Label message;
     @FXML
     private VBox newViewContainter;
     @FXML
@@ -27,63 +27,55 @@ public class MainViewController {
 
 
     public void initialize() {
-        loadDefaultView();
+        try {
+            loadDefaultView();
+        } catch (Exception e) {
+          message.setText("Error initializing the default view.");
+        }
     }
-
 
     public void setUser(User user) {
         this.user = user;
-        allowAccessDependingOnRole();
-        loadDefaultView();
-    }
+        try {
+            allowAccessDependingOnRole();
+            loadDefaultView();
+        } catch (Exception e) {
+            message.setText("Error setting the user.");
 
+        }
+    }
 
     public void setDatabase(Database database) {
         this.database = database;
     }
 
-
     private void allowAccessDependingOnRole() {
-        switch (user.getUserType()) {
-            case sales:
-                dashboardButton.setDisable(false);
-                createOrderButton.setDisable(false);
-                productInventoryButton.setDisable(true);
-                orderHistoryButton.setDisable(false);
-                break;
-            case manager:
-                dashboardButton.setDisable(false);
-                createOrderButton.setDisable(true);
-                productInventoryButton.setDisable(false);
-                orderHistoryButton.setDisable(false);
-                break;
-            default:
-                break;
+        try {
+            switch (user.getUserType()) {
+                case sales:
+                    dashboardButton.setDisable(false);
+                    createOrderButton.setDisable(false);
+                    productInventoryButton.setDisable(true);
+                    orderHistoryButton.setDisable(false);
+                    break;
+                case manager:
+                    dashboardButton.setDisable(false);
+                    createOrderButton.setDisable(true);
+                    productInventoryButton.setDisable(false);
+                    orderHistoryButton.setDisable(false);
+                    break;
+                default:
+                    break;
+            }
+        } catch (Exception e) {
+            message.setText("Error allowing access based on role.");
+
         }
     }
-
 
     private void loadDefaultView() {
         navigateToDashboard();
     }
-
-
-    public void navigateToDashboard() {
-        loadView("/com/inholland/nl/wimsmusicstore/DashboardView.fxml");
-    }
-
-    public void navigateToCreateOrder() {
-        loadView("/com/inholland/nl/wimsmusicstore/CreateOrderView.fxml");
-    }
-
-    public void navigateToProductInventory() {
-        loadView("/com/inholland/nl/wimsmusicstore/ProductInventoryView.fxml");
-    }
-
-    public void navigateToOrderHistory() {
-        loadView("/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml");
-    }
-
 
     private void loadView(String fxmlPath) {
         try {
@@ -105,9 +97,27 @@ public class MainViewController {
 
             newViewContainter.getChildren().setAll(navigationView);
         } catch (IOException e) {
-            out.println("Unable to find view");
-            e.printStackTrace();
+            message.setText("Unable to find view");
+        } catch (Exception e) {
+            message.setText("Error loading the view.");
+
         }
+    }
+
+    public void navigateToDashboard() {
+        loadView("/com/inholland/nl/wimsmusicstore/DashboardView.fxml");
+    }
+
+    public void navigateToCreateOrder() {
+        loadView("/com/inholland/nl/wimsmusicstore/CreateOrderView.fxml");
+    }
+
+    public void navigateToProductInventory() {
+        loadView("/com/inholland/nl/wimsmusicstore/ProductInventoryView.fxml");
+    }
+
+    public void navigateToOrderHistory() {
+        loadView("/com/inholland/nl/wimsmusicstore/OrderHistoryView.fxml");
     }
 
 }

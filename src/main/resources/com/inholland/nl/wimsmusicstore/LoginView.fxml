@@ -47,6 +47,6 @@
         <Font size="19.0"/>
       </font>
     </Button>
-    <Label fx:id="feedbackLabel"/>
+    <Label fx:id="feedbackLabel" style="-fx-text-fill: red"/>
   </VBox>
 </SplitPane>

@@ -30,36 +30,47 @@ public class LoginController {
     private User user;
     private final InputValidator inputValidator = new InputValidator();
 
-
-
     public void setDatabase(Database database) {
         this.database = database;
     }
+
     @FXML
     public void onPasswordTextChange(StringProperty observable, String oldValue, String newValue) {
-        loginButton.setDisable(!inputValidator.isPasswordValid(newValue));
+        try {
+            loginButton.setDisable(!inputValidator.isPasswordValid(newValue));
+        } catch (Exception e) {
+            feedbackLabel.setText("Error validating the password.");
+        }
     }
 
     @FXML
     public void onLoginButtonClick(ActionEvent actionEvent) {
-        userLogin();
-        if (user != null) {
-            loadScene();
-        } else {
-            feedbackLabel.setText("Invalid Username or Password");
+        try {
+            userLogin();
+            if (user != null) {
+                loadScene();
+            } else {
+                feedbackLabel.setText("Invalid Username or Password");
+            }
+        } catch (Exception e) {
+            feedbackLabel.setText("Error processing the login.");
         }
     }
+
     public void userLogin() {
-        String username = userNameField.getText();
-        String password = passwordField.getText();
+        try {
+            String username = userNameField.getText();
+            String password = passwordField.getText();
 
-        if (inputValidator.isPasswordValid(password)) {
-            user = database.getUser(username, password);
-        } else {
-            feedbackLabel.setText("Invalid password or username.");
+            if (inputValidator.isPasswordValid(password)) {
+                user = database.getUser(username, password);
+            } else {
+                feedbackLabel.setText("Invalid password or username.");
+            }
+        } catch (Exception e) {
+            feedbackLabel.setText("Error validating the user credentials.");
         }
     }
-
 
     public void loadScene() {
         try {
@@ -76,8 +87,8 @@ public class LoginController {
             ((Stage) loginButton.getScene().getWindow()).close();
         } catch (IOException e) {
             feedbackLabel.setText("Error opening new view.");
-            e.printStackTrace();
+        } catch (Exception e) {
+            feedbackLabel.setText("Unexpected error occurred.");
         }
     }
-
 }

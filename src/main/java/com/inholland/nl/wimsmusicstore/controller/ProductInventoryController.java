@@ -42,18 +42,30 @@ public class ProductInventoryController implements Initializable {
 
     public void setDatabase(Database database) {
         this.database = database;
-        loadData();
+        try {
+            loadData();
+        } catch (Exception e) {
+            message.setText("Error loading data.");
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        inputValidator = new InputValidator();
+        try {
+            productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            inputValidator = new InputValidator();
+        } catch (Exception e) {
+            message.setText("Initialization error.");
+        }
     }
 
     public void loadData() {
-        products = FXCollections.observableArrayList(database.getProducts());
-        productTableView.setItems(products);
+        try {
+            products = FXCollections.observableArrayList(database.getProducts());
+            productTableView.setItems(products);
+        } catch (Exception e) {
+            message.setText("Error loading products.");
+        }
     }
 
     public void onAddProductButtonClick() {
@@ -65,7 +77,7 @@ public class ProductInventoryController implements Initializable {
             String descriptionText = description.getText();
 
             if (validateFields(productNameText, categoryText, descriptionText)) {
-                return; // Exit if validation failed
+                return;
             }
 
             Product product = new Product(stockValue, productNameText, categoryText, priceValue, descriptionText);
@@ -77,7 +89,6 @@ public class ProductInventoryController implements Initializable {
             message.setText("Error converting stock or price values.");
         } catch (Exception e) {
             message.setText("Error adding product.");
-            err.println(e.getMessage());
         }
     }
 
@@ -140,11 +151,15 @@ public class ProductInventoryController implements Initializable {
     }
 
     private boolean validateFields(String productNameText, String categoryText, String descriptionText) {
-        if (!inputValidator.containsOnlyCharacters(productNameText) ||
-                !inputValidator.containsOnlyCharacters(categoryText) ||
-                !inputValidator.containsOnlyCharacters(descriptionText)) {
-            message.setText("Product Name, Category, and Description must contain only letters.");
-            return true;
+        try {
+            if (inputValidator.containsOnlyCharacters(productNameText) ||
+                    inputValidator.containsOnlyCharacters(categoryText) ||
+                    inputValidator.containsOnlyCharacters(descriptionText)) {
+                message.setText("Product Name, Category, and Description must contain only letters.");
+                return true;
+            }
+        } catch (Exception e) {
+            message.setText("Validation error.");
         }
         return false;
     }
@@ -164,19 +179,28 @@ public class ProductInventoryController implements Initializable {
     }
 
     public void clearFields() {
-        stock.clear();
-        productName.clear();
-        category.clear();
-        price.clear();
-        description.clear();
+        try {
+            stock.clear();
+            productName.clear();
+            category.clear();
+            price.clear();
+            description.clear();
+        } catch (Exception e) {
+            message.setText("Error clearing fields.");
+            err.println(e.getMessage());
+        }
     }
 
     private void clearPromptText() {
-        stock.setPromptText("Stock");
-        productName.setPromptText("Product Name");
-        category.setPromptText("Category");
-        price.setPromptText("Price");
-        description.setPromptText("Description");
+        try {
+            stock.setPromptText("Stock");
+            productName.setPromptText("Product Name");
+            category.setPromptText("Category");
+            price.setPromptText("Price");
+            description.setPromptText("Description");
+        } catch (Exception e) {
+            message.setText("Error resetting prompt text.");
+            err.println(e.getMessage());
+        }
     }
-
 }

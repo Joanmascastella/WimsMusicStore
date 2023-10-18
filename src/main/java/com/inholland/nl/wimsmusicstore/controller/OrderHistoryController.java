@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -20,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class OrderHistoryController implements Initializable {
 
+    @FXML private Label message;
     @FXML private TableColumn<Order, String> dateTimeRow;
     @FXML private TableColumn<Order, String> userNameRow;
     @FXML private TableColumn<Order, Double> totalPriceRow;
@@ -36,30 +38,43 @@ public class OrderHistoryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        orderView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        dateTimeRow.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOrderDate()));
-        userNameRow.setCellValueFactory(cellData -> {
-            User user = cellData.getValue().getUser();
-            return new SimpleStringProperty(user.getFirstName());
-        });
-        totalPriceRow.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getProducts().stream()
-                .mapToDouble(Product::getFinalPrice)
-                .sum()).asObject());
-        orderView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldOrder, newOrder) -> {
-            if (newOrder != null) {
-                displayOrderProducts(newOrder);
-            }
-        });
+        try {
+            orderView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            dateTimeRow.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getOrderDate()));
+            userNameRow.setCellValueFactory(cellData -> {
+                User user = cellData.getValue().getUser();
+                return new SimpleStringProperty(user.getFirstName());
+            });
+            totalPriceRow.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getProducts().stream()
+                    .mapToDouble(Product::getFinalPrice)
+                    .sum()).asObject());
+            orderView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldOrder, newOrder) -> {
+                if (newOrder != null) {
+                    displayOrderProducts(newOrder);
+                }
+            });
+        } catch (Exception e) {
+            message.setText("Error initializing OrderHistoryController: ");
+        }
     }
 
     private void displayOrderProducts(Order order) {
-        ObservableList<Product> products = FXCollections.observableArrayList(order.getProducts());
-        orderProductsView.setItems(products);
+        try {
+            ObservableList<Product> products = FXCollections.observableArrayList(order.getProducts());
+            orderProductsView.setItems(products);
+        } catch (Exception e) {
+            message.setText("Error displaying order products: ");
+        }
     }
+
     public void loadData() {
-        ObservableList<Order> orders;
-        orders = FXCollections.observableArrayList(database.getOrders());
-        orderView.setItems(orders);
+        try {
+            ObservableList<Order> orders;
+            orders = FXCollections.observableArrayList(database.getOrders());
+            orderView.setItems(orders);
+        } catch (Exception e) {
+            message.setText("Error loading data in OrderHistoryController: ");
+        }
     }
 }
 

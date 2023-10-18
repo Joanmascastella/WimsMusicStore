@@ -62,5 +62,5 @@
             </TableColumn>
         </columns>
     </TableView>
-
+    <Label fx:id="message" style="-fx-text-fill: red" />
 </VBox>

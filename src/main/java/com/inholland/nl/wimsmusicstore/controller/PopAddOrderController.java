@@ -30,18 +30,29 @@ public class PopAddOrderController implements Initializable {
 
     public void setDatabase(Database database) {
         this.database = database;
-        loadData();
+        try {
+            loadData();
+        } catch (Exception e) {
+            message.setText("Error loading data.");
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        try {
+            productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        } catch (Exception e) {
+            message.setText("Initialization error.");
+        }
     }
 
     public void loadData() {
-        ObservableList<Product> products;
-        products = FXCollections.observableArrayList(database.getProducts());
-        productTableView.setItems(products);
+        try {
+            ObservableList<Product> products = FXCollections.observableArrayList(database.getProducts());
+            productTableView.setItems(products);
+        } catch (Exception e) {
+            message.setText("Error loading products.");
+        }
     }
 
     public void setOnProductSelected(ProductSelectedListener listener) {
@@ -56,20 +67,28 @@ public class PopAddOrderController implements Initializable {
                 return;
             }
             Product selectedProduct = productTableView.getSelectionModel().getSelectedItem();
+            if (selectedProduct == null) {
+                message.setText("Please select a product.");
+                return;
+            }
             Product newProduct = new Product(quantity, selectedProduct.getProductName(), selectedProduct.getCategory(), selectedProduct.getPrice());
             selectedProduct.reduceStock(quantity);
-            selectedProduct.getFinalPrice();
             listener.onProductSelected(newProduct);
             Stage currentStage = (Stage) addOrder.getScene().getWindow();
             currentStage.close();
         } catch (NumberFormatException e) {
             message.setText("Invalid input. Please enter a valid integer.");
+        } catch (Exception e) {
+            message.setText("An error occurred while adding the order.");
         }
     }
 
-
     public void cancel() {
-        Stage currentStage = (Stage) cancel.getScene().getWindow();
-        currentStage.close();
+        try {
+            Stage currentStage = (Stage) cancel.getScene().getWindow();
+            currentStage.close();
+        } catch (Exception e) {
+            message.setText("An error occurred while closing the window.");
+        }
     }
 }

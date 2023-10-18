@@ -20,12 +20,15 @@ public class DashboardController {
 
     public void setUser(User user) {
         this.user = user;
-        getUserInfo();
+        try {
+            getUserInfo();
+        } catch (Exception e) {
+            userName.setText("Error displaying user information.");
+        }
     }
 
     public void setDatabase(Database database) {
         this.database = database;
-
     }
 
     public void getUserInfo() {
@@ -40,10 +43,13 @@ public class DashboardController {
     }
 
     public void updateDateTime() {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = now.format(formatter);
-        dateAndTime.setText("It is now: " + formattedDateTime);
+        try {
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            dateAndTime.setText("It is now: " + formattedDateTime);
+        } catch (Exception e) {
+            dateAndTime.setText("Error displaying the date and time.");
+        }
     }
-
 }

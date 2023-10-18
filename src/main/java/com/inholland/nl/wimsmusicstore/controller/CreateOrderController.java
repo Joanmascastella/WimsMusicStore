@@ -1,6 +1,7 @@
 package com.inholland.nl.wimsmusicstore.controller;
 
 import com.inholland.nl.wimsmusicstore.database.Database;
+import com.inholland.nl.wimsmusicstore.model.InputValidator;
 import com.inholland.nl.wimsmusicstore.model.Order;
 import com.inholland.nl.wimsmusicstore.model.Product;
 import com.inholland.nl.wimsmusicstore.model.User;
@@ -22,10 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static java.lang.System.*;
-
 public class CreateOrderController implements Initializable {
-    private List<Product> selectedProducts = new ArrayList<>();
+    private final List<Product> selectedProducts = new ArrayList<>();
     @FXML
     private TextField firstNameTextField;
     @FXML
@@ -81,17 +80,14 @@ public class CreateOrderController implements Initializable {
             dialog.getDialogPane().setContent(root);
             dialog.showAndWait();
         } catch (IOException e) {
-            out.println("Unable to load view");
-            e.printStackTrace();
+            message.setText("Error loading the Add Product view.");
         }
     }
-
 
     public void updateTableView() {
         ObservableList<Product> observableProducts = FXCollections.observableArrayList(selectedProducts);
         productTableView.setItems(observableProducts);
     }
-
 
     public void deleteOrderButton() {
         List<Product> productsToRemove = new ArrayList<>(productTableView.getSelectionModel().getSelectedItems());
@@ -106,21 +102,48 @@ public class CreateOrderController implements Initializable {
     }
 
     public void createOrderButton() {
-        int phoneNumber = Integer.parseInt(phoneNumberTextField.getText());
-        User user = new User(
-                firstNameTextField.getText(),
-                lastNameTextField.getText(),
-                emailTextField.getText(),
-                phoneNumber
-        );
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = now.format(formatter);
-        Order order = new Order(formattedDateTime, user, selectedProducts);
-        database.addOrder(order);
-        message.setText("Created Order");
-        clearFields();
+        String firstName = firstNameTextField.getText();
+        String lastName = lastNameTextField.getText();
+        String email = emailTextField.getText();
+
+        if (!validateFields(firstName, lastName)) {
+            return;
+        }
+
+        try {
+            int phoneNumber = Integer.parseInt(phoneNumberTextField.getText());
+            User user = new User(firstName, lastName, email, phoneNumber);
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedDateTime = now.format(formatter);
+            Order order = new Order(formattedDateTime, user, selectedProducts);
+            database.addOrder(order);
+            message.setText("Created Order");
+            clearFields();
+        } catch (NumberFormatException e) {
+            message.setText("Invalid phone number.");
+        } catch (Exception e) {
+            message.setText("Error creating the order.");
+        }
     }
+
+    private boolean validateFields(String firstName, String lastName) {
+        InputValidator validator = new InputValidator();
+
+        if (!validator.containsOnlyCharacters(firstName) || !validator.containsOnlyCharacters(lastName)) {
+            message.setText("First name and last name should contain only characters.");
+            return false;
+        }
+
+        if (!validator.isPositiveNumber(phoneNumberTextField.getText())) {
+            message.setText("Please enter a valid positive phone number.");
+            return false;
+        }
+
+        return true;
+    }
+
+
 
     public void clearFields() {
         firstNameTextField.clear();
