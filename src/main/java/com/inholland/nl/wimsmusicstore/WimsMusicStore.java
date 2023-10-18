@@ -24,7 +24,7 @@ public class WimsMusicStore extends Application {
         Scene scene = new Scene(root, 488, 369);
         stage.setTitle("Wim's Music Store");
         stage.setResizable(false);
-   a     stage.setScene(scene);
+        stage.setScene(scene);
         stage.show();
         Runtime.getRuntime().addShutdownHook(new Thread(database::saveDatabaseToFile));
     }
