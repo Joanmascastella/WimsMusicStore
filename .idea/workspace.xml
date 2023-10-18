@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="fixing more validation issues and adding try catches to all necessary code">
+    <list default="true" id="56e80c7d-7eb2-407f-8743-d01da6c51a89" name="Changes" comment="stock and quantity being done correctly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.dat" beforeDir="false" afterPath="$PROJECT_DIR$/database.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/controller/CreateOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/controller/CreateOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/controller/PopAddOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/controller/PopAddOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/inholland/nl/wimsmusicstore/database/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <workItem from="1697486470575" duration="18000" />
       <workItem from="1697526380454" duration="3311000" />
       <workItem from="1697549255933" duration="3529000" />
-      <workItem from="1697613762864" duration="14705000" />
+      <workItem from="1697613762864" duration="15133000" />
     </task>
     <task id="LOCAL-00001" summary="Creating New project">
       <option name="closed" value="true" />
@@ -437,7 +437,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697647795515</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="stock and quantity being done correctly">
+      <option name="closed" value="true" />
+      <created>1697650663854</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1697650663854</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +453,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Product inventory now adds new items to list and saves it to binary file making it so its data persistent" />
     <MESSAGE value="Delete works" />
     <MESSAGE value="Product inventory done" />
     <MESSAGE value="moving on to create order" />
@@ -470,6 +477,7 @@
     <MESSAGE value="Fixing things" />
     <MESSAGE value="Finally working validating create order fields" />
     <MESSAGE value="fixing more validation issues and adding try catches to all necessary code" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing more validation issues and adding try catches to all necessary code" />
+    <MESSAGE value="stock and quantity being done correctly" />
+    <option name="LAST_COMMIT_MESSAGE" value="stock and quantity being done correctly" />
   </component>
 </project>

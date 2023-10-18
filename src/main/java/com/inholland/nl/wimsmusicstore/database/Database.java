@@ -9,10 +9,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.*;
+
 public class Database {
     private final List<User> users;
-    private List<Product> products = new ArrayList<>();
-    private List<Order> orders = new ArrayList<>();
+    private final List<Product> products = new ArrayList<>();
+    private final List<Order> orders = new ArrayList<>();
     private DataWrapper databaseData;
 
 
@@ -36,6 +38,19 @@ public class Database {
         }
         return null;
     }
+
+// In Database.java
+
+    public Product findProductByName(String productName) {
+        for (Product p : products) {
+            if (p.getProductName().equals(productName)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+
 
     public List<Product> getProducts() {
         return products;
@@ -68,7 +83,7 @@ public class Database {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("database.dat"))) {
             oos.writeObject(databaseData);
         } catch (IOException e) {
-            e.printStackTrace();
+            out.println("Error saving data to file");
         }
     }
 
@@ -85,7 +100,7 @@ public class Database {
                 products.addAll(databaseData.products);
                 orders.addAll(databaseData.orders);
             } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+                out.println("Error loading data to file");
             }
         }
     }
