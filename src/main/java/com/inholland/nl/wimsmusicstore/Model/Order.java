@@ -2,7 +2,6 @@ package com.inholland.nl.wimsmusicstore.Model;
 
 import java.io.Serializable;
 import java.util.List;
-import java.time.LocalDateTime;
 
 
 public class Order implements Serializable {
@@ -11,7 +10,7 @@ public class Order implements Serializable {
     private List<Product> products;
     private String orderDate;
 
-    //Constructor used to make an order
+
     public Order(String orderDate, User user, List<Product> products) {
         this.orderDate = orderDate;
         this.user = user;

@@ -14,7 +14,6 @@ public class User implements Serializable {
     private final String email;
     private final int phoneNumber;
 
-    //Constructor that is used for creating sales and manager personnel
     public User(String username, String password, String firstName, String lastName, String email, int phoneNumber, UserType userType) {
         this.username = username;
         this.password = password;
@@ -25,7 +24,6 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    //Constructor used to create customers when placing an order
     public User(String firstName, String lastName, String email, int phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;

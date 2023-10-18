@@ -11,7 +11,6 @@ public class Product implements Serializable {
     private int quantity;
     private double finalPrice;
 
-    //Constructor used when creating a product in product inventory
     public Product(int stock, String productName, String category, double price, String description) {
         this.stock = stock;
         this.productName = productName;
@@ -20,7 +19,6 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    //Constructor used when adding a product to an order
     public Product(int quantity, String productName, String category, double finalPrice) {
         this.quantity = quantity;
         this.productName = productName;

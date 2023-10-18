@@ -4,7 +4,6 @@ import com.inholland.nl.wimsmusicstore.Database.Database;
 import com.inholland.nl.wimsmusicstore.Model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -20,7 +19,7 @@ public class ProductInventoryController implements Initializable {
     @FXML
     private Button editProduct;
     @FXML
-    private TableView productTableView;
+    private TableView<Product> productTableView;
     @FXML
     private TextField stock;
     @FXML
@@ -39,49 +38,38 @@ public class ProductInventoryController implements Initializable {
     private Label message;
     private Product selectedProductForEdit;
 
-    //Setting a database instance
     public void setDatabase(Database database) {
         this.database = database;
         loadData();
     }
 
-    //In this method I am making sure items can be selected
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
-    //This method loads data from product list and displays those items to the table view
     public void loadData() {
         products = FXCollections.observableArrayList(database.getProducts());
         productTableView.setItems(products);
     }
 
-    //Creates and adds a new product
     public void onAddProductButtonClick() {
         try {
-            //Parse int and double values
             int stockValue = Integer.parseInt(stock.getText());
             double priceValue = Double.parseDouble(price.getText());
-            //Creates new product
             Product product = new Product(stockValue, productName.getText(), category.getText(), priceValue, description.getText());
-            //Adds product to database and file
             database.addProduct(product);
-            //adds product to tableview
             products.add(product);
-            //clear fields
             clearFields();
             message.setText("Product has been added successfully.");
         } catch (NumberFormatException e) {
-            message.setText("Error converting stock or price values. Please enter valid numbers.");
-            err.println("Error converting stock or price values. Please enter valid numbers.");
+            message.setText("Error converting stock or price values.");
         } catch (Exception e) {
             message.setText("Error adding product.");
             err.println(e.getMessage());
         }
     }
 
-    //Edits product and sends the updated product to the list
     public void onEditProductButtonClick() {
         if (selectedProductForEdit == null) {
             setPromptText();
@@ -92,11 +80,9 @@ public class ProductInventoryController implements Initializable {
 
     }
 
-    //This method makes sure that the data of a selected product is loaded to the prompt text of the text fields
     private void setPromptText() {
-        //This gets the selectedProduct and sets its values to the prompt text of the textFields
         try {
-            Product selectedProduct = (Product) productTableView.getSelectionModel().getSelectedItem();
+            Product selectedProduct = productTableView.getSelectionModel().getSelectedItem();
             if (selectedProduct != null) {
                 stock.setPromptText(String.valueOf(selectedProduct.getStock()));
                 productName.setPromptText(selectedProduct.getProductName());
@@ -111,20 +97,16 @@ public class ProductInventoryController implements Initializable {
         }
     }
 
-    //Updates data of product when being edited
     private void updateProduct() {
         try {
-            // This is checking if the fields are empty
             int stockValue = stock.getText().isEmpty() ? selectedProductForEdit.getStock() : Integer.parseInt(stock.getText());
             double priceValue = price.getText().isEmpty() ? selectedProductForEdit.getPrice() : Double.parseDouble(price.getText());
             Product updatedProduct = getProduct(stockValue, priceValue);
-            // Replacing the old product in the database
             database.removeProduct(selectedProductForEdit);
             database.addProduct(updatedProduct);
             int selectedIndex = products.indexOf(selectedProductForEdit);
-            products.set(selectedIndex, updatedProduct);  // Updates the tableview
+            products.set(selectedIndex, updatedProduct);
             clearFields();
-            // Exits the editing function
             selectedProductForEdit = null;
             message.setText("Product has been edited successfully.");
         } catch (NumberFormatException e) {
@@ -136,24 +118,21 @@ public class ProductInventoryController implements Initializable {
         }
     }
 
-    //This method sets int and double values of the new edited products
+
     private Product getProduct(int stockValue, double priceValue) {
         String updatedProductName = productName.getText().isEmpty() ? selectedProductForEdit.getProductName() : productName.getText();
         String updatedCategory = category.getText().isEmpty() ? selectedProductForEdit.getCategory() : category.getText();
         String updatedDescription = description.getText().isEmpty() ? selectedProductForEdit.getDescription() : description.getText();
-        // Creating the updated product
         return new Product(stockValue, updatedProductName, updatedCategory, priceValue, updatedDescription);
     }
 
-    //This method deletes selected product form the list in database
+
     public void onDeleteButtonClick() {
         try {
-            //Gets the selected product removes it from the list and file
             ObservableList<Product> productsToDelete = productTableView.getSelectionModel().getSelectedItems();
             for (Product product : productsToDelete) {
                 database.removeProduct(product);
             }
-            //removes products from tableview
             products.removeAll(productsToDelete);
             message.setText("Product(s) have been deleted successfully.");
         } catch (Exception e) {
@@ -162,7 +141,6 @@ public class ProductInventoryController implements Initializable {
         }
     }
 
-    //This method clears all text fields
     public void clearFields() {
         stock.clear();
         productName.clear();
@@ -171,7 +149,6 @@ public class ProductInventoryController implements Initializable {
         description.clear();
     }
 
-    //Clears prompt text
     private void clearPromptText() {
         stock.setPromptText("Stock");
         productName.setPromptText("Product Name");
