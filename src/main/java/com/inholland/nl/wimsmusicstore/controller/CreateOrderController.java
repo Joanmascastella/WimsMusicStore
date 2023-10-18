@@ -93,7 +93,7 @@ public class CreateOrderController implements Initializable {
     }
 
 
-    public void deletOrderButton() {
+    public void deleteOrderButton() {
         List<Product> productsToRemove = new ArrayList<>(productTableView.getSelectionModel().getSelectedItems());
         if (productsToRemove.isEmpty()) {
             message.setText("Please select a product to delete");

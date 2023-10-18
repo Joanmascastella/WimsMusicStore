@@ -72,7 +72,7 @@
   <!-- Row of buttons -->
   <HBox spacing="10">
     <Button fx:id="addOrderButton" text="Add Order" onAction="#addOrderButton" />
-    <Button fx:id="deleteOrderButton" text="Delete Order" onAction="#deletOrderButton"/>
+    <Button fx:id="deleteOrderButton" text="Delete Order" onAction="#deleteOrderButton"/>
     <Button fx:id="createOrderButton" text="Create Order" onAction="#createOrderButton"/>
   </HBox>
   <Label fx:id="message" style="-fx-text-fill: red" />

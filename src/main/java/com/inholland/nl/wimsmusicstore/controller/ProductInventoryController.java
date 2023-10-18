@@ -1,6 +1,7 @@
 package com.inholland.nl.wimsmusicstore.controller;
 
 import com.inholland.nl.wimsmusicstore.database.Database;
+import com.inholland.nl.wimsmusicstore.model.InputValidator;
 import com.inholland.nl.wimsmusicstore.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,6 +38,7 @@ public class ProductInventoryController implements Initializable {
     @FXML
     private Label message;
     private Product selectedProductForEdit;
+    private InputValidator inputValidator;
 
     public void setDatabase(Database database) {
         this.database = database;
@@ -46,6 +48,7 @@ public class ProductInventoryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        inputValidator = new InputValidator();
     }
 
     public void loadData() {
@@ -57,7 +60,15 @@ public class ProductInventoryController implements Initializable {
         try {
             int stockValue = Integer.parseInt(stock.getText());
             double priceValue = Double.parseDouble(price.getText());
-            Product product = new Product(stockValue, productName.getText(), category.getText(), priceValue, description.getText());
+            String productNameText = productName.getText();
+            String categoryText = category.getText();
+            String descriptionText = description.getText();
+
+            if (validateFields(productNameText, categoryText, descriptionText)) {
+                return; // Exit if validation failed
+            }
+
+            Product product = new Product(stockValue, productNameText, categoryText, priceValue, descriptionText);
             database.addProduct(product);
             products.add(product);
             clearFields();
@@ -71,13 +82,17 @@ public class ProductInventoryController implements Initializable {
     }
 
     public void onEditProductButtonClick() {
-        if (selectedProductForEdit == null) {
-            setPromptText();
-        } else {
-            updateProduct();
-            clearPromptText();
+        try {
+            if (selectedProductForEdit == null) {
+                setPromptText();
+            } else {
+                updateProduct();
+                clearPromptText();
+            }
+        } catch (Exception e) {
+            message.setText("Please select a product to edit.");
+            err.println(e.getMessage());
         }
-
     }
 
     private void setPromptText() {
@@ -101,7 +116,14 @@ public class ProductInventoryController implements Initializable {
         try {
             int stockValue = stock.getText().isEmpty() ? selectedProductForEdit.getStock() : Integer.parseInt(stock.getText());
             double priceValue = price.getText().isEmpty() ? selectedProductForEdit.getPrice() : Double.parseDouble(price.getText());
-            Product updatedProduct = getProduct(stockValue, priceValue);
+            String updatedProductName = productName.getText().isEmpty() ? selectedProductForEdit.getProductName() : productName.getText();
+            String updatedCategory = category.getText().isEmpty() ? selectedProductForEdit.getCategory() : category.getText();
+            String updatedDescription = description.getText().isEmpty() ? selectedProductForEdit.getDescription() : description.getText();
+            if (validateFields(updatedProductName, updatedCategory, updatedDescription)) {
+                message.setText("Please ensure the remaining textbox contains only text and not a number. After verifying, click the edit button again.");
+                return;
+            }
+            Product updatedProduct = new Product(stockValue, updatedProductName, updatedCategory, priceValue, updatedDescription);
             database.removeProduct(selectedProductForEdit);
             database.addProduct(updatedProduct);
             int selectedIndex = products.indexOf(selectedProductForEdit);
@@ -111,21 +133,21 @@ public class ProductInventoryController implements Initializable {
             message.setText("Product has been edited successfully.");
         } catch (NumberFormatException e) {
             message.setText("Error converting stock or price values. Please enter valid numbers.");
-            err.println("Error converting stock or price values. Please enter valid numbers.");
         } catch (Exception e) {
             message.setText("Error updating product.");
             err.println(e.getMessage());
         }
     }
 
-
-    private Product getProduct(int stockValue, double priceValue) {
-        String updatedProductName = productName.getText().isEmpty() ? selectedProductForEdit.getProductName() : productName.getText();
-        String updatedCategory = category.getText().isEmpty() ? selectedProductForEdit.getCategory() : category.getText();
-        String updatedDescription = description.getText().isEmpty() ? selectedProductForEdit.getDescription() : description.getText();
-        return new Product(stockValue, updatedProductName, updatedCategory, priceValue, updatedDescription);
+    private boolean validateFields(String productNameText, String categoryText, String descriptionText) {
+        if (!inputValidator.containsOnlyCharacters(productNameText) ||
+                !inputValidator.containsOnlyCharacters(categoryText) ||
+                !inputValidator.containsOnlyCharacters(descriptionText)) {
+            message.setText("Product Name, Category, and Description must contain only letters.");
+            return true;
+        }
+        return false;
     }
-
 
     public void onDeleteButtonClick() {
         try {

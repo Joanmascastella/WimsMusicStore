@@ -49,15 +49,24 @@ public class PopAddOrderController implements Initializable {
     }
 
     public void addOrder() {
-        Product selectedProduct = productTableView.getSelectionModel().getSelectedItem();
-        int quantity = Integer.parseInt(quantityInput.getText());
-        Product newProduct = new Product(quantity, selectedProduct.getProductName(), selectedProduct.getCategory(), selectedProduct.getPrice());
-        selectedProduct.reduceStock(quantity);
-        selectedProduct.getFinalPrice();
-        listener.onProductSelected(newProduct);
-        Stage currentStage = (Stage) addOrder.getScene().getWindow();
-        currentStage.close();
+        try {
+            int quantity = Integer.parseInt(quantityInput.getText());
+            if (quantity < 1) {
+                message.setText("Quantity must be a positive integer.");
+                return;
+            }
+            Product selectedProduct = productTableView.getSelectionModel().getSelectedItem();
+            Product newProduct = new Product(quantity, selectedProduct.getProductName(), selectedProduct.getCategory(), selectedProduct.getPrice());
+            selectedProduct.reduceStock(quantity);
+            selectedProduct.getFinalPrice();
+            listener.onProductSelected(newProduct);
+            Stage currentStage = (Stage) addOrder.getScene().getWindow();
+            currentStage.close();
+        } catch (NumberFormatException e) {
+            message.setText("Invalid input. Please enter a valid integer.");
+        }
     }
+
 
     public void cancel() {
         Stage currentStage = (Stage) cancel.getScene().getWindow();

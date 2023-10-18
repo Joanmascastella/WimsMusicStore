@@ -1,6 +1,7 @@
 package com.inholland.nl.wimsmusicstore.controller;
 
 import com.inholland.nl.wimsmusicstore.database.Database;
+import com.inholland.nl.wimsmusicstore.model.InputValidator;
 import com.inholland.nl.wimsmusicstore.model.User;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -27,6 +28,8 @@ public class LoginController {
     private TextField userNameField;
     private Database database;
     private User user;
+    private final InputValidator inputValidator = new InputValidator();
+
 
 
     public void setDatabase(Database database) {
@@ -34,8 +37,9 @@ public class LoginController {
     }
     @FXML
     public void onPasswordTextChange(StringProperty observable, String oldValue, String newValue) {
-        loginButton.setDisable(!isPasswordValid(newValue));
+        loginButton.setDisable(!inputValidator.isPasswordValid(newValue));
     }
+
     @FXML
     public void onLoginButtonClick(ActionEvent actionEvent) {
         userLogin();
@@ -48,24 +52,15 @@ public class LoginController {
     public void userLogin() {
         String username = userNameField.getText();
         String password = passwordField.getText();
-        user = database.getUser(username, password);
-    }
-    protected boolean isPasswordValid(String password) {
-        var hasLetters = false;
-        var hasDigits = false;
-        var hasSpecial = false;
 
-        for (var c : password.toCharArray()) {
-            if (Character.isDigit(c)) {
-                hasDigits = true;
-            } else if (Character.isLetter(c)) {
-                hasLetters = true;
-            } else {
-                hasSpecial = true;
-            }
+        if (inputValidator.isPasswordValid(password)) {
+            user = database.getUser(username, password);
+        } else {
+            feedbackLabel.setText("Invalid password or username.");
         }
-        return password.length() > 7 && (hasLetters && hasDigits && hasSpecial);
     }
+
+
     public void loadScene() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/inholland/nl/wimsmusicstore/MainView.fxml"));
